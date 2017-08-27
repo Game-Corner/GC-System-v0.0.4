@@ -1,8 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const herokuPinger = require('heroku-pinger');
+const pinger = herokuPinger(SITE_URL);
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  pinger.schedulePing();
 });
 
 var ignore = false
