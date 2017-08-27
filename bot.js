@@ -12,8 +12,13 @@ var ignore = false
 
 client.on('message', msg => {
   if (msg.content === 'GCMignore') {
+    if (guildmember.roles.find === 'Moderator') {
     ignore = true;
-    msg.reply('Channel is now ignored');
+    msg.reply('Channel is now ignored.');
+    }
+    else {
+      msg.reply('You do not have the permissions to do this.');
+    }
   }
 });
 
