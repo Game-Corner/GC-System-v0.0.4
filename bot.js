@@ -17,16 +17,14 @@ client.on('message', msg => {
       msg.reply('You do not have the permissions to do this.');
     }
   }
-});
-
-
-client.on('message', msg => {
   if (msg.content === 'ping') {
     if (ignore = true) {}
     else if (ignore = false) {
     msg.reply('Pong!');
-    }
+  }
   }
 });
+
+
 
 client.login(process.env.token);
