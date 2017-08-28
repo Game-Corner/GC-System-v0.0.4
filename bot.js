@@ -9,7 +9,7 @@ var ignore = false
 
 client.on('message', msg => {
   if (msg.content === 'GCMignore') {
-    if (guildmember.roles = '@&309165526427369473') {
+    if (guildmember.roles.equals = '@&309165526427369473') {
     ignore = true;
     msg.reply('Channel is now ignored.');
     }
