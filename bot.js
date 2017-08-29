@@ -40,8 +40,4 @@ if (msg.content === 'ping') {
 }
 });
 
-
-
-
-
 client.login(process.env.token);
