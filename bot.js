@@ -24,7 +24,7 @@ var ignore = false
 client.on('message', msg => {
   if (msg.content === 'GCMignore') {
    var gR1 = get getRoles()
-if (gR1.includes('Moderator) = true {
+if (gR1.includes('Moderator) = true) {
     ignore = true;
     msg.reply('Channel is now ignored.');
     }
