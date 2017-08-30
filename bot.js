@@ -11,7 +11,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (this.guildmember.roles.has(309165526427369473)) {
+    if (this.guildmember.roles(309165526427369473)) {
       msg.reply('Disabled');
     }
     else {
