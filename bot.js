@@ -1,19 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-
-function roles() {
-const list = new Collection();
-    const everyoneRole = this.guild.roles.get(this.guild.id);
-
-    if (everyoneRole) list.set(everyoneRole.id, everyoneRole);
-
-    for (const roleID of this._roles) {
-      const role = this.guild.roles.get(roleID);
-      if (role) list.set(role.id, role);
-    }
-
-    return list;
-  };
   
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -25,8 +11,20 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    var gRole = get roles();
-    if (gRole.includes('@&309165526427369473')) {
+    var GetRoles = get roles() {
+    var list = new Collection();
+    var everyoneRole = this.guild.roles.get(this.guild.id);
+
+    if (everyoneRole) list.set(everyoneRole.id, everyoneRole);
+
+    for (const roleID of this._roles) {
+      const role = this.guild.roles.get(roleID);
+      if (role) list.set(role.id, role);
+    }
+
+    return list.get("@&309165526427369473");
+  }
+    if (GetRoles.includes("Moderator")) {
       msg.reply('Disabled');
     }
   }
