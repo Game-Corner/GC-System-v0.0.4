@@ -11,12 +11,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (this.guildmember.roles(309165526427369473)) {
-      msg.reply('Disabled');
-    }
-    else {
-      msg.reply('You do not have permission to do this.');
-    }
+      msg.reply(guildmember.id);
   }
   
 });
