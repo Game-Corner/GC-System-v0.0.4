@@ -11,7 +11,8 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-      msg.reply(guildmember.id);
+    var GuildID = guildmember.id 
+    msg.reply(GuildID);
   }
   
 });
