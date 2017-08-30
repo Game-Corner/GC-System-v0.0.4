@@ -9,13 +9,13 @@ var ignore = false
 
 client.on('message', msg => {
   if (msg.content === 'GCMignore') {
-    ignore = true;
+    ignore = 'true';
     msg.reply('Channel is now ignored.');
     }
 
 if (msg.content === 'ping') {
-  if (ignore = true) {}
-  else {
+  if (ignore = 'true') {}
+  else if (ignore = 'false') {
   msg.reply('Pong!');
  }
 }
