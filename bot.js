@@ -12,13 +12,10 @@ client.on('message', msg => {
     ignore = true;
     msg.reply('Channel is now ignored.');
     }
-    else {
-      msg.reply('You do not have the permissions to do this.');
-    }
 
 if (msg.content === 'ping') {
   if (ignore = true) {}
-  else if (ignore = false) {
+  else {
   msg.reply('Pong!');
  }
 }
