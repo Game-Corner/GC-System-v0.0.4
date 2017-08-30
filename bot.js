@@ -18,7 +18,6 @@ if (msg.content === 'ping') {
   else if (ignore = 'false') {
   msg.reply('Pong!');
  }
-}
 });
 
 client.login(process.env.token);
