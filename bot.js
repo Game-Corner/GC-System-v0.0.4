@@ -11,7 +11,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (this.guild.roles.has(@&309165526427369473)) {
+    if (this.guild.roles.has(309165526427369473)) {
       msg.reply('Disabled');
     }
   }
