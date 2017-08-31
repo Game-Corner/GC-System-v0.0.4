@@ -11,7 +11,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-        msg.reply(msg.id);
+        msg.reply(msg.author.id);
   }
 });
 
