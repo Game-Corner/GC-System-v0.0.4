@@ -11,8 +11,9 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    var GuildID = guildmember.id 
-    msg.reply(GuildID);
+    if (client.memberhasrole("Moderator") {
+        msg.reply('Worked');
+        }
   }
   
 });
