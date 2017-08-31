@@ -11,11 +11,10 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (client.memberhasrole("Moderator") {
+    if (msg.author.hasrole("Moderator") {
         msg.reply('Worked');
         }
   }
-  
 });
 
 client.login(process.env.token);
