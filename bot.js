@@ -11,8 +11,11 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (msg.author.hasRole(Moderator)) {    
+    if (msg.author.hasRole("Moderator")) {    
     msg.reply("worked");
+    }
+    else {
+      msg.reply("Failed");
     }
   }
 });
