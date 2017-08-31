@@ -11,7 +11,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === 'GCMignore') {
-    if (msg.author.hasrole("Moderator") {
+    if (msg.author.hasRole("Moderator") {
         msg.reply('Worked');
         }
   }
