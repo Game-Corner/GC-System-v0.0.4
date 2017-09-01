@@ -1,23 +1,20 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-  
+var prefix = 'GC'
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('serverRoleCreated', client => {
+  client.sendMessage("298139186819629056", "@everyone A new role has been created! Please see #role-request for more info on " + client.role + " !");
+});
+
 client.on('message', msg => {
-  if (msg.content === 'ping') {
+  if (msg.content === prefix + 'ping') {
     msg.reply('Pong!');
   }
-  
-  if (msg.content === 'GCMignore') {
-    if (msg.author.hasRole("309165526427369473") = true) {    
-    msg.reply("worked");
-    }
-    else {
-      msg.reply("Failed");
-    }
-  }
 });
+
 
 client.login(process.env.token);
