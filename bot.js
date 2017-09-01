@@ -6,8 +6,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+console.log(util.inspect(client.listeners('serverRoleCreated')));
+
 client.on('serverRoleCreated', () => {
-  client.sendMessage("298139186819629056", "@everyone A new role has been created! Please see #role-request for more info on test");
+  client.sendMessage("298139186819629056", role.name);
 });
 
 client.on('message', msg => {
