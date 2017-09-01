@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const guildMember = message.member;
 var prefix = 'GC!'
 
 client.on('ready', () => {
@@ -17,6 +16,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefix + 'ignore') {
+    const guildMember = message.member;
     if (guildMember.roles.has(309165526427369473)) {
         msg.reply('worked');
     }    
