@@ -18,7 +18,7 @@ client.on('message', msg => {
   
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
-    if (guildMember.roles.has(&309165526427369473)) {
+    if (guildMember.roles.has("309165526427369473")) {
         msg.reply('worked');
     }    
     else {
