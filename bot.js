@@ -23,14 +23,13 @@ client.on('message', msg => {
     }
   }
   
-  try {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
     const author = msg.author.id;
     if (guildMember.roles.has('309165526427369473')) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.on('message', msg => {
+        client.once('message', msg => {
           if (author === msg.author.id) {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
@@ -55,11 +54,6 @@ client.on('message', msg => {
       msg.reply('You do not have the permissions to do this.');
     }
   }
-  }
-  catch(err) {
-    console.log(err.message);
-  }
-
 });
 
 client.login(process.env.token);
