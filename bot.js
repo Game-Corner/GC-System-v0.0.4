@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
-ignoredChannels = new Collection();
+const ignoredChannels = new Collection();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -10,21 +10,32 @@ client.on('ready', () => {
 client.on('message', msg => {
 
   if (msg.content === prefix + 'ping') {
-    if (
-    msg.reply('Pong!');
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply('Pong!');
+    }
   }
   
   if (msg.content === prefix + 'info') {
-    msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. You can contribute to it here: https://github.com/Game-Corner/GC-System ');
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. You can contribute to it here: https://github.com/Game-Corner/GC-System ');
+    }
   }
   
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
-    if (guildMember.roles.has("309165526427369473")) {
-        msg.channel 
+    if (guildMember.roles.has('309165526427369473')) {
+      if (ignoredChannels.has(msg.channel.id)) {
+        msg.reply('Would you like to stop ignoring this channel?');
+      }
+      else {
+      ignoredChannels.set(msg.channel.id, msg.channel.name);
+      msg.reply('Channel is now ignored.');
+      }
     }    
     else {
-      msg.reply('did not work');
+      msg.reply('You do not have the permissions to do this.');
     }
   }
 });
