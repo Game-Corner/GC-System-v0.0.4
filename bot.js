@@ -32,16 +32,17 @@ client.on('message', msg => {
         client.on('message', msg => {
           if (author === msg.author.id) {
             if (msg.content === 'Yes') {
-              client.on('remove-listener', msg => {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
-              });
+              client.removeListener('message', msg);
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
+              client.removeListener('message', msg);
             }
             else {
               msg.reply('You did not type in the correct arguments. Please try again later.');
+              client.removeListener('message', msg);
             }
           }
           else {}
