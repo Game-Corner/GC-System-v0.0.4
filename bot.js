@@ -7,6 +7,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
+
   if (msg.content === prefix + 'ping') {
     msg.reply('Pong!');
   }
@@ -23,6 +24,13 @@ client.on('message', msg => {
     else {
       msg.reply('did not work')
     }
+  }
+});
+
+
+
+  if (msg.content === 'ping') {
+    msg.reply('Pong!');
   }
 });
 
