@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
+ignoredChannels = new Collection();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -9,6 +10,7 @@ client.on('ready', () => {
 client.on('message', msg => {
 
   if (msg.content === prefix + 'ping') {
+    if (
     msg.reply('Pong!');
   }
   
@@ -19,7 +21,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
     if (guildMember.roles.has("309165526427369473")) {
-        msg.reply('worked');
+        msg.channel 
     }    
     else {
       msg.reply('did not work');
