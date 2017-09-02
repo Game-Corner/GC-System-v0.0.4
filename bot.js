@@ -38,6 +38,13 @@ client.on('message', msg => {
       msg.reply('You do not have the permissions to do this.');
     }
   }
+  
+  if (msg.content === prefix + 'channel') {
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply(msg.channel.name);
+    }
+  }
 });
 
 client.login(process.env.token);
