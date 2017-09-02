@@ -23,6 +23,7 @@ client.on('message', msg => {
     }
   }
   
+  try {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
     if (guildMember.roles.has('309165526427369473')) {
@@ -37,6 +38,10 @@ client.on('message', msg => {
     else {
       msg.reply('You do not have the permissions to do this.');
     }
+  }
+  }
+  catch(err) {
+    console.log(err.message);
   }
   
   if (msg.content === prefix + 'channel') {
