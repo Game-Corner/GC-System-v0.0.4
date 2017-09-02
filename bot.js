@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
-const ignoredChannels = new Collection();
+const ignoredChannels = new Map();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
