@@ -26,27 +26,31 @@ client.on('message', msg => {
   try {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
+    const author = msg.author.id;
     if (guildMember.roles.has('309165526427369473')) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
         client.on('message', msg => {
-          if (msg.content === 'Yes') {
-            ignoredChannels.delete(msg.channel.id);
-            msg.reply('Channel is now not ignored.')
+          if (author === msg.author.id) {
+            if (msg.content === 'Yes') {
+              ignoredChannels.delete(msg.channel.id);
+              msg.reply('Channel is now not ignored.');
+            }
+            else if (msg.content === 'No') {
+              msg.reply('Channel is still ignored.');
+            }
+            else {
+              msg.reply('You did not type in the correct arguments. Please try again later.');
+            }
           }
-          else if (msg.content === 'No') {
-            msg.reply('Channel is still ignored.')
-          }
-          else {
-            msg.reply('You did not type in the correct arguments. Please try again later.')
-          }
-        });    
+          else {}
+        });
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
       msg.reply('Channel is now ignored.');
       }
-    }    
+    }
     else {
       msg.reply('You do not have the permissions to do this.');
     }
@@ -55,13 +59,7 @@ client.on('message', msg => {
   catch(err) {
     console.log(err.message);
   }
-  
-  if (msg.content === prefix + 'channel') {
-    if (ignoredChannels.has(msg.channel.id)) {}
-    else {
-      msg.reply(msg.channel.name);
-    }
-  }
+
 });
 
 client.login(process.env.token);
