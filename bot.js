@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
+var stopNext = false;
 const ignoredChannels = new Map();
 
 client.on('ready', () => {
@@ -32,15 +33,20 @@ client.on('message', msg => {
         client.on('message', msg => {
           if (author === msg.author.id) {
             if (msg.content === 'Yes') {
-              ignoredChannels.delete(msg.channel.id);
-              msg.reply('Channel is now not ignored.');
-              client.removeListener('message', msg);
+              if (stopNext = false) {
+                ignoredChannels.delete(msg.channel.id);
+                msg.reply('Channel is now not ignored.');
+                stopNext = true;
+              }  
             }
             else if (msg.content === 'No') {
-              msg.reply('Channel is still ignored.');
+              if (stopNext = false) {
+                msg.reply('Channel is still ignored.');
+                stopNext = true;
+              }
             }
             else {
-              msg.reply('You did not type in the correct arguments. Please try again later.');
+              msg.reply('You did not type in the correct arguments. Please type "Yes" or "No".');
             }
           }
           else {}
