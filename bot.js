@@ -34,7 +34,7 @@ client.on('message', msg => {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
-              client.on('remove-listener', msg =>) {}
+              client.on('remove-listener', msg => { });
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
