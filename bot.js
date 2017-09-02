@@ -28,7 +28,19 @@ client.on('message', msg => {
     const guildMember = msg.member;
     if (guildMember.roles.has('309165526427369473')) {
       if (ignoredChannels.has(msg.channel.id)) {
-        msg.reply('Would you like to stop ignoring this channel?');
+        msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
+        client.on('message', msg => {
+          if (msg.content === 'Yes') {
+            ignoredChannels.delete(msg.channel.id);
+            msg.reply('Channel is now not ignored.')
+          }
+          else if (msg.content === 'No') {
+            msg.reply('Channel is still ignored.')
+          }
+          else {
+            msg.reply('You did not type in the correct arguments. Please try again later.')
+          }
+        });    
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
