@@ -29,12 +29,12 @@ client.on('message', msg => {
     if (guildMember.roles.has('309165526427369473')) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.setMaxListeners(2)
         client.on('message', msg => {
           if (author === msg.author.id) {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
+              client.on('remove-listener', msg =>) {}
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
