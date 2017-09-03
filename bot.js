@@ -27,6 +27,7 @@ client.on('message', msg => {
     }
   }
   
+  try {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
     const author = msg.author.id;
@@ -59,6 +60,10 @@ client.on('message', msg => {
     else {
       msg.reply('You do not have the permissions to do this.');
     }
+  }
+  }
+  catch(err) {
+    console.log(err.message);
   }
 });
 
