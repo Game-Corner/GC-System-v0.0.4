@@ -8,8 +8,9 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
+function 
 
+client.on('message', msg => {
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
@@ -35,7 +36,6 @@ client.on('message', msg => {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
-              client.removeListener('removeListener', msg)
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
