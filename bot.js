@@ -34,15 +34,12 @@ client.on('message', msg => {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
-              this.stop();
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
-              this.stop();
             }
             else {
               msg.reply('You did not type in the correct arguments. Please type "Yes" or "No".');
-              this.stop();
             }
           }
           else {}
