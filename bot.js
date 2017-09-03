@@ -8,6 +8,10 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+const msg = msg => {
+  console.log('ended');
+};
+
 client.on('message', msg => {
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
