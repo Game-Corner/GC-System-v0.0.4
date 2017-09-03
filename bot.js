@@ -42,6 +42,7 @@ client.on('message', msg => {
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
+              client.removeAllListeners(['message'])
             }
             else {
               msg.reply('You did not type in the correct arguments. Please type "Yes" or "No".');
