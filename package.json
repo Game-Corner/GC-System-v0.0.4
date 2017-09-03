@@ -4,7 +4,8 @@
   "description": "",
   "main": "bot.js",
   "dependencies": {
-    "discord.js": "^11.1.0"
+    "discord.js": "^11.1.0",
+    "event-chains": "^0.0.8"
   },
   "devDependencies": {},
   "scripts": {
