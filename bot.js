@@ -1,16 +1,11 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
-var stopNext = false;
 const ignoredChannels = new Map();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
-
-const msg = msg => {
-  console.log('ended');
-};
 
 client.on('message', msg => {
   if (msg.content === prefix + 'ping') {
@@ -27,11 +22,10 @@ client.on('message', msg => {
     }
   }
   
-  try {
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
     const author = msg.author.id;
-    if (guildMember.roles.has('309165526427369473')) {
+    if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
         client.on('message', msg => {
@@ -39,11 +33,9 @@ client.on('message', msg => {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
-              client.removeAllListeners(['message'])
             }
             else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
-              client.removeAllListeners(['message'])
             }
             else {
               msg.reply('You did not type in the correct arguments. Please type "Yes" or "No".');
@@ -60,10 +52,6 @@ client.on('message', msg => {
     else {
       msg.reply('You do not have the permissions to do this.');
     }
-  }
-  }
-  catch(err) {
-    console.log(err.message);
   }
 });
 
