@@ -1,28 +1,56 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
+const ignoredChannels = new Map();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
 client.on('message', msg => {
-
   if (msg.content === prefix + 'ping') {
-    msg.reply('Pong!');
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply('Pong!');
+    }
   }
   
   if (msg.content === prefix + 'info') {
-    msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. You can contribute to it here: https://github.com/Game-Corner/GC-System ');
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. You can contribute to it here: https://github.com/Game-Corner/GC-System ');
+    }
   }
   
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
-    if (guildMember.roles.has("309165526427369473")) {
-        msg.reply('worked');
-    }    
+    const author = msg.author.id;
+    if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
+      if (ignoredChannels.has(msg.channel.id)) {
+        msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
+        client.on('message', msg => {
+          if (author === msg.author.id){
+            if (msg.content === 'Yes') {
+              ignoredChannels.delete(msg.channel.id);
+              msg.reply('Channel is now not ignored.');
+            }
+            else if (msg.content === 'No') {
+              msg.reply('Channel is ignored.');
+            }
+            else {
+              msg.reply('You did not type in the correct arguments. Please type "Yes" or "No".');
+            }
+          }
+        
+        });
+      }
+      else {
+      ignoredChannels.set(msg.channel.id, msg.channel.name);
+      msg.reply('Channel is now ignored.');
+      }
+    }
     else {
-      msg.reply('did not work');
+      msg.reply('You do not have the permissions to do this.');
     }
   }
 });
