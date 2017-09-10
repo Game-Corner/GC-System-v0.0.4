@@ -46,7 +46,7 @@ client.on('message', msg => {
         client.on('message', msg => {
           if (author === msg.author.id) {
             if (msg.content !== 'Yes') {
-              if (msg.content !== 'No')
+              if (msg.content !== 'No') {
               msg.reply('You did not type in the correct arguments. Please try again later.');
               }
             }
