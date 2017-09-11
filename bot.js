@@ -34,21 +34,11 @@ client.on('message', msg => {
               ignoredChannels.delete(msg.channel.id);
               msg.reply('Channel is now not ignored.');
             }
-          }
-        });
-        client.on('message', msg => {  
-          if (author === msg.author.id) {
-            if (msg.content === 'No') {
+            else if (msg.content === 'No') {
               msg.reply('Channel is still ignored.');
             }
-          }
-        });
-        client.on('message', msg => {
-          if (author === msg.author.id) {
-            if (msg.content !== 'Yes') {
-              if (msg.content !== 'No') {
+            else (author === msg.author.id) {
               msg.reply('You did not type in the correct arguments. Please try again later.');
-              }
             }
           }
         });
