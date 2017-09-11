@@ -28,7 +28,7 @@ client.on('message', msg => {
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.on('message', msg => {
+        client.once('message', msg => {
           if (author === msg.author.id) {
             if (msg.content === 'Yes') {
               ignoredChannels.delete(msg.channel.id);
