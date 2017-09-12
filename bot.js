@@ -4,7 +4,6 @@ var prefix = 'GC!';
 const ignoredChannels = new Map();
 
 const msg1 = () => {
-  if (msg.author.id === msg1.author.id) {
     if (msg1.content === 'Yes') {
       ignoredChannels.delete(msg1.channel.id);
       msg1.reply('Channel is now not ignored.');
@@ -16,7 +15,6 @@ const msg1 = () => {
     else {
       msg1.reply('You did not type in the correct arguments. Please try again later.');
     }
-  }
 };
 
 client.on('ready', () => {
