@@ -3,6 +3,22 @@ const client = new Discord.Client();
 var prefix = 'GC!';
 const ignoredChannels = new Map();
 
+const msg1 = () => {
+  if (author === msg1.author.id) {
+    if (msg1.content === 'Yes') {
+      ignoredChannels.delete(msg1.channel.id);
+      msg1.reply('Channel is now not ignored.');
+      client.removeListener('message', msg1);
+    }
+    else if (msg1.content === 'No') {
+      msg1.reply('Channel is still ignored.');
+    }
+    else {
+      msg1.reply('You did not type in the correct arguments. Please try again later.');
+    }
+  }
+};
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
@@ -25,24 +41,11 @@ client.on('message', msg => {
   
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
-    const author = msg.author.id;
+    author = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.on('message', msg1 => {
-          if (author === msg1.author.id) {
-            if (msg1.content === 'Yes') {
-              ignoredChannels.delete(msg1.channel.id);
-              msg1.reply('Channel is now not ignored.');
-            }
-            else if (msg1.content === 'No') {
-              msg1.reply('Channel is still ignored.');
-            }
-            else {
-              msg1.reply('You did not type in the correct arguments. Please try again later.');
-            }
-          }
-        });
+        client.on('message', msg1);
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
