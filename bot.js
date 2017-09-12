@@ -4,7 +4,7 @@ var prefix = 'GC!';
 const ignoredChannels = new Map();
 
 const msg1 = () => {
-  if (author === msg1.author.id) {
+  if (msg.author.id === msg1.author.id) {
     if (msg1.content === 'Yes') {
       ignoredChannels.delete(msg1.channel.id);
       msg1.reply('Channel is now not ignored.');
@@ -41,7 +41,6 @@ client.on('message', msg => {
   
   if (msg.content === prefix + 'ignore') {
     const guildMember = msg.member;
-    author = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
