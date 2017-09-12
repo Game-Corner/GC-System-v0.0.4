@@ -13,7 +13,6 @@ client.on('message', msg => {
     msg.reply('poop you');
     msg.reply('poop me');
     msg.reply('poop');
-    msg.reply(client.listenerCount('message'));
   }
   
   if (msg.content === prefix + 'ping') {
