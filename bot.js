@@ -9,12 +9,6 @@ client.on('ready', () => {
 
 client.on('message', msg => {
   
-  if (msg.content === prefix + 'poop') {
-    msg.reply('poop you');
-    msg.reply('poop me');
-    msg.reply('poop');
-  }
-  
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
