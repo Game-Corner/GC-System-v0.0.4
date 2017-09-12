@@ -28,17 +28,17 @@ client.on('message', msg => {
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.once('message', msg => {
-          if (author === msg.author.id) {
-            if (msg.content === 'Yes') {
-              ignoredChannels.delete(msg.channel.id);
-              msg.reply('Channel is now not ignored.');
+        client.on('message', msg1 => {
+          if (author === msg1.author.id) {
+            if (msg1.content === 'Yes') {
+              ignoredChannels.delete(msg1.channel.id);
+              msg1.reply('Channel is now not ignored.');
             }
-            else if (msg.content === 'No') {
-              msg.reply('Channel is still ignored.');
+            else if (msg1.content === 'No') {
+              msg1.reply('Channel is still ignored.');
             }
             else {
-              msg.reply('You did not type in the correct arguments. Please try again later.');
+              msg1.reply('You did not type in the correct arguments. Please try again later.');
             }
           }
         });
