@@ -40,7 +40,8 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefix + 'ignore') {
-    const guildMember = msg.member;
+    var guildMember = msg.member;
+    author = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
