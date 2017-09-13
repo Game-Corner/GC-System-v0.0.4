@@ -3,7 +3,7 @@ const client = new Discord.Client();
 var prefix = 'GC!';
 const ignoredChannels = new Map();
 
-const msg1 = () => {
+const msg1 = msg1 => {
     if (msg1.content === 'Yes') {
       ignoredChannels.delete(msg1.channel.id);
       msg1.reply('Channel is now not ignored.');
