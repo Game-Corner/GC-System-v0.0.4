@@ -12,9 +12,11 @@ const msg1 = msg => {
     }
     else if (msg.content === 'No') {
       msg.reply('Channel is still ignored.');
+      client.removeListener('message', msg1);
     }
     else {
       msg.reply('You did not type in the correct arguments. Please try again later.');
+      client.removeListener('message', msg1);
     }
   }
 };
