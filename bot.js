@@ -3,18 +3,18 @@ const client = new Discord.Client();
 var prefix = 'GC!';
 const ignoredChannels = new Map();
 
-const msg1 = msg1 => {
-  if (author === msg1.author.id) {
-    if (msg1.content === 'Yes') {
-      ignoredChannels.delete(msg1.channel.id);
+const msg1 = msg => {
+  if (author === msg.author.id) {
+    if (msg.content === 'Yes') {
+      ignoredChannels.delete(msg.channel.id);
       msg1.reply('Channel is now not ignored.');
-      client.removeListener('message', msg1);
+      client.removeListener('message', msg);
     }
-    else if (msg1.content === 'No') {
-      msg1.reply('Channel is still ignored.');
+    else if (msg.content === 'No') {
+      msg.reply('Channel is still ignored.');
     }
     else {
-      msg1.reply('You did not type in the correct arguments. Please try again later.');
+      msg.reply('You did not type in the correct arguments. Please try again later.');
     }
   }
 };
