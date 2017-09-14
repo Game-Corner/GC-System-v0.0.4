@@ -15,8 +15,27 @@ const msg1 = msg => {
       client.removeListener('message', msg1);
     }
     else {
-      msg.reply('You did not type in the correct arguments. Please try again later.');
+      msg.reply('You did not type in the correct arguments. Please try again.');
       client.removeListener('message', msg1);
+      client.on('message', msg2);
+    }
+  }
+};
+
+const msg2 = msg => {
+  if (author === msg.author.id) {
+    if (msg.content === 'Yes') {
+      ignoredChannels.delete(msg.channel.id);
+      msg.reply('Channel is now not ignored.');
+      client.removeListener('message', msg2);
+    }
+    else if (msg.content === 'No') {
+      msg.reply('Channel is still ignored.');
+      client.removeListener('message', msg2);
+    }
+    else {
+      msg.reply('You did not type in the correct arguments. Please try again later.');
+      client.removeListener('message', msg2);
     }
   }
 };
