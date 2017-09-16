@@ -1,3 +1,5 @@
+http.createServer(onRequest).listen(process.env.PORT || 6000)
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
