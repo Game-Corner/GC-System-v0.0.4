@@ -7,7 +7,7 @@ var clientUser = client.user;
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
 
-clientUser.setgame('GC!info');
+clientUser.setGame('GC!info');
 
 const msg1 = msg => {
   if (author === msg.author.id) {
