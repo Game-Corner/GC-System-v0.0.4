@@ -1,1 +1,1 @@
-
+var info = 'Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. Commands You can visit our sit here:You can contribute to it here: https://github.com/Game-Corner/GC-System'
