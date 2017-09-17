@@ -7,8 +7,6 @@ var clientUser = client.user;
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
 
-clientUser.setGame('GC!info');
-
 const msg1 = msg => {
   if (author === msg.author.id) {
     if (msg.content === 'Yes') {
@@ -48,6 +46,7 @@ const msg2 = msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  clientUser.setGame('GC!info');
 });
 
 client.on('message', msg => {
