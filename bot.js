@@ -1,11 +1,13 @@
 const http = require('http'); 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-var prefix = 'GC!';
 const ignoredChannels = new Map();
-clientUser.setgame('GC!info');
+var prefix = 'GC!';
+var clientUser = client.user;
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
+
+clientUser.setgame('GC!info');
 
 const msg1 = msg => {
   if (author === msg.author.id) {
