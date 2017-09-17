@@ -50,7 +50,6 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-  
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
@@ -61,7 +60,17 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. Commands can be found by using GC!commands . You can visit our sit here: game-corner.000webhostapp.com You can contribute to the bot here: https://github.com/Game-Corner/GC-System');
+      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. 
+                Commands can be found by using GC!commands. 
+                You can visit our site here: game-corner.000webhostapp.com 
+                You can contribute to the bot here: https://github.com/Game-Corner/GC-System');
+    }
+  }
+  
+  if (msg.content === prefix + 'commands') {
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply();
     }
   }
   
