@@ -52,7 +52,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply(client.ping + ' ' 'ms');
+      msg.reply(client.ping + ' ms');
     }
   }
   
