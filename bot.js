@@ -4,10 +4,10 @@ const client = new Discord.Client();
 var prefix = 'GC!';
 const ignoredChannels = new Map();
 
-http.createServer(function (req, res) {
-    res.writeHead(200, {'Content-Type': 'text/plain'});
-    res.end('Hello World!');
-}).listen(8080);
+http.createServer(function (req, res) { 
+  res.writeHead(200, {'Content-Type': 'text/plain'}); 
+  res.send('it is running\n'); 
+}).listen(process.env.PORT || 5000);
 
 const msg1 = msg => {
   if (author === msg.author.id) {
