@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var prefix = 'GC!';
 const ignoredChannels = new Map();
-import '/modules/bot.js';
+clientUser.setgame('GC!info');
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
 
@@ -60,7 +60,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply(info);
+      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. Commands can be found by using GC!commands . You can visit our sit here: game-corner.000webhostapp.com You can contribute to the bot here: https://github.com/Game-Corner/GC-System');
     }
   }
   
