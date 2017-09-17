@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const ignoredChannels = new Map();
 var prefix = 'GC!';
-var clientUser = client.user;
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
 
@@ -46,6 +45,7 @@ const msg2 = msg => {
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
+  var clientUser = client.user;
   clientUser.setGame('GC!info');
 });
 
