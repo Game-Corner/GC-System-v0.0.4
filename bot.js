@@ -1,14 +1,14 @@
 const http = require('http'); 
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const ignoredChannels = new Map();
+var ignoredChannels = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 
 http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
 
 const msg1 = msg => {
-  if (author === msg.author.id) {
+  if (authorIgnore === msg.author.id) {
     if (msg.content === 'Yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
@@ -19,27 +19,124 @@ const msg1 = msg => {
       client.removeListener('message', msg1);
     }
     else {
-      msg.reply('You did not type in the correct arguments. Please try again.');
+      msg.reply('You did not type in the correct arguments. Please type Yes or No');
       client.removeListener('message', msg1);
-      client.on('message', msg2);
+      client.on('message', msg1_2);
     }
   }
 };
 
-const msg2 = msg => {
-  if (author === msg.author.id) {
+const msg1_2 = msg => {
+  if (authorIgnore === msg.author.id) {
     if (msg.content === 'Yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
-      client.removeListener('message', msg2);
+      client.removeListener('message', msg1_2);
     }
     else if (msg.content === 'No') {
       msg.reply('Channel is still ignored.');
-      client.removeListener('message', msg2);
+      client.removeListener('message', msg1_2);
     }
     else {
       msg.reply('You did not type in the correct arguments. Please try again later.');
-      client.removeListener('message', msg2);
+      client.removeListener('message', msg1_2);
+    }
+  }
+};
+
+const quest = msg => {
+  if (authorQuest === msg.author.id) {
+    if (msg.content === 'Moderator' || msg.content === 'moderator') {
+      msg.reply('What should the new Moderator prefix be?');
+      client.removeListener('message', quest);
+      client.on('message', quest1);
+    }
+    else if (msg.content === 'Everyone' || msg.content === 'everyone') {
+      msg.reply('What should the new Everyone prefix be?');
+      client.removeListener('message', quest);
+      client.on('message', quest2);
+    }
+    else {
+      msg.reply('You did not type in the correct arguments. Please type Moderator or Everyone.');
+      client.removeListener('message', quest);
+      client.on('message', quest3);
+    }
+  }
+};
+
+const quest1 = msg => {
+  if (authorQuest === msg.author.id) { 
+    if (msg.content.length > 4 || msg.content.length < 1) {
+      msg.reply('The prefix must be between 1 and 4 characters long. Please try again.');
+      client.removeListener('message', quest1);
+      client.on('message', quest1_2);
+    }
+    else {
+      prefixM = msg.content;
+      msg.reply('The Moderator prefix has been set to`' + prefixM = '`.');
+      client.removeListener('message', quest1);
+    }
+  }
+};
+
+const quest1_1 = msg => {
+  if (authorQuest === msg.author.id) {
+    if (msg.content.length > 4 || msg.content.length < 1) {
+      msg.reply('The prefix must be between 1 and 4 characters long. Please try again later.');
+      client.removeListener('message', quest1_1);
+    }
+    else {
+      prefixM = msg.content;
+      msg.reply('The Moderator prefix has been set to`' + prefixM = '`.');
+      client.removeListener('message', quest1_1);
+    }
+  }
+};
+
+const quest2 = msg => {
+  if (authorQuest === msg.author.id) {
+    if (msg.content.length > 4 || msg.content.length < 1) {
+      msg.reply('The prefix must be between 1 and 4 characters long. Please try again.');
+      client.removeListener('message', quest2);
+      client.on('message', quest2_1);
+    }
+    else {
+      prefix = msg.content;
+      msg.reply('The Everyone prefix has been set to`' + prefix = '`.');
+      client.removeListener('message', quest2);
+    }
+  }
+};
+
+const quest2_1 = msg => {
+  if (authorQuest === msg.author.id) {
+    if (msg.content.length > 4 || msg.content.length < 1) {
+      msg.reply('The prefix must be between 1 and 4 characters long. Please try again later.');
+      client.removeListener('message', quest2_1);
+    }
+    else {
+      prefixM = msg.content;
+      msg.reply('The Everyone prefix has been set to`' + prefix = '`.');
+      client.removeListener('message', quest2_1);
+    }
+  }
+};    
+
+const quest3 = msg => {
+  if (authorQuest === msg.author.id) {
+    if (msg.content === 'Moderator' || msg.content === 'moderator') {
+      msg.reply('What should the new Moderator prefix be?');
+      client.removeListener('message', quest3);
+      client.on('message', quest1);
+    }
+    else if (msg.content === 'Everyone' || msg.content === 'everyone') {
+      msg.reply('What should the new Everyone prefix be?');
+      client.removeListener('message', quest);
+      client.on('message', quest2);
+    }
+    else {
+      msg.reply('You did not type in the correct arguments. Please try again later.');
+      client.removeListener('message', quest3);
     }
   }
 };
@@ -51,7 +148,7 @@ client.on('ready', () => {
 });
 
 client.on('guildCreate', guild => {
-  guild.owner.send('Game Corner System has joined your server! To learn more about this bot, please type `GC!info` in ' + guild.name + '. To configure this bot\'s moderation and functions, please type `GCm!info` in ' + guild.name + '.')
+  guild.owner.send('Game Corner System has joined your server! To learn more about this bot, please type `GC!info` in ' + guild.name + '. To configure this bot\'s moderation and functions, please type `GCm!info` in ' + guild.name + '.');
 });
 
 client.on('message', msg => {
@@ -93,15 +190,23 @@ client.on('message', msg => {
     }
   }
   
-  if (msg.content === prefixM + 'setRoles') {
+  if (msg.content === prefixM + 'setPrefix') {
+    msg.reply('Would you like to change the Everyone or the Moderator prefix?');
+    authorQuest = msg.author.id;
+    client.on('message', quest);
+  }
   
+  if (msg.content === prefixM + 'setRoles') {
+    if (
+    msg.reply('Please state the 
+    
   if (msg.content === prefixM + 'ignore') {
     var guildMember = msg.member;
-    author = msg.author.id;
+    authorIgnore = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
-        msg.reply('Would you like to stop ignoring this channel? (Yes/No)');
-        client.on('message', msg1);
+        msg.reply('Would you like to stop ignoring this channel?');
+        client.on('message', msg1);`
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
