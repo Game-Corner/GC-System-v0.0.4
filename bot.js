@@ -69,7 +69,7 @@ const quest1 = msg => {
     if (msg.content.length > 4 || msg.content.length < 1) {
       msg.reply('The prefix must be between 1 and 4 characters long. Please try again.');
       client.removeListener('message', quest1);
-      client.on('message', quest1_2);
+      client.on('message', quest1_1);
     }
     else {
       prefixM = msg.content;
