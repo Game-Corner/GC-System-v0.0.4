@@ -195,10 +195,6 @@ client.on('message', msg => {
     authorQuest = msg.author.id;
     client.on('message', quest);
   }
-  
-  if (msg.content === prefixM + 'setRoles') {
-    if (
-    msg.reply('Please state the 
     
   if (msg.content === prefixM + 'ignore') {
     var guildMember = msg.member;
