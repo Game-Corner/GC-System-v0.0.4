@@ -50,6 +50,10 @@ client.on('ready', () => {
   clientUser.setGame('GC!info');
 });
 
+client.on('guildCreate', guild => {
+  guild.owner.send(`Game Corner System has joined your server! To learn more about this bot, please type GC!info in ${guild.name}. To configure this bot\'s Moderation and functions, please type GCm!info in ${guild.name}.`)
+});
+
 client.on('message', msg => {
   if (msg.content === prefix + 'ping') {
     if (ignoredChannels.has(msg.channel.id)) {}
