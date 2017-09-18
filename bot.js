@@ -73,7 +73,7 @@ const quest1 = msg => {
     }
     else {
       prefixM = msg.content;
-      msg.reply('The Moderator prefix has been set to`' + prefixM = '`.');
+      msg.reply('The Moderator prefix has been set to`' + prefixM + '`.');
       client.removeListener('message', quest1);
     }
   }
