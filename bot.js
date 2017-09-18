@@ -61,21 +61,21 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `GC!commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. Github: https://github.com/Game-Corner/GC-System');
+      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `GC!commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. GitHub: https://github.com/Game-Corner/GC-System');
     }
   }
   
   if (msg.content === prefix + 'commands') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Commands:** \n To use these commands, type ${prefix}, then one of the commands below. __Example:__ GC!ping \n  1. `info` Provides information about Game Corner System and Game Corner \n 2. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `${prefixM}commands`');
+      msg.reply('**Commands:** \n To use these commands, type ${prefix} , then one of the commands below. __Example:__ GC!ping \n  1. `info` Provides information about Game Corner System and Game Corner \n 2. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `${prefixM}commands`');
     }
   }
   
   if (msg.content === prefixM + 'commands') {
     var guildMember = msg.member;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
-      msg.reply('**Commands:** \n To use these commands, type ${prefixM}, then one of the commands below. __Example:__ GC!ignore \n  1. `ignore` Ignores the channel the message was sent in from all moderator commands \n **For Everyone commands, please use:** `${prefix}commands`');
+      msg.reply('**Commands:** \n To use these commands, type ${prefixM} , then one of the commands below. __Example:__ GC!ignore \n  1. `ignore` Ignores the channel the message was sent in from all moderator commands \n **For Everyone commands, please use:** `${prefix}commands`');
     }
     else {
       msg.reply('You do not have the permissions to use these commands.');
