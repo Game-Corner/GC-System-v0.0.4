@@ -60,7 +60,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community. \n Commands can be found by using GC!commands. \n You can visit our site here: game-corner.000webhostapp.com \n You can contribute to the bot here: https://github.com/Game-Corner/GC-System');
+      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `GC!commands`. \n Sites: \n 1. Community: https://game-corner.000webhostapp.com \n 2. Github: https://github.com/Game-Corner/GC-System');
     }
   }
   
