@@ -202,7 +202,7 @@ client.on('message', msg => {
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel?');
-        client.on('message', msg1);`
+        client.on('message', msg1);
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
