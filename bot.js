@@ -116,7 +116,7 @@ const quest2_1 = msg => {
     }
     else {
       prefixM = msg.content;
-      msg.reply('The Everyone prefix has been set to`' + prefix = '`.');
+      msg.reply('The Everyone prefix has been set to`' + prefix + '`.');
       client.removeListener('message', quest2_1);
     }
   }
