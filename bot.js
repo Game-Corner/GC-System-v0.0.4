@@ -61,7 +61,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'help') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('For **information** about this bot, please type: `' + prefix + 'info` \n \n For the **commands** to this bot, please type: `' + prefix + 'commands`');
+      msg.reply('\n For **information** about this bot, please type: `' + prefix + 'info` \n \n For the **commands** to this bot, please type: `' + prefix + 'commands`');
     }
   }
   
