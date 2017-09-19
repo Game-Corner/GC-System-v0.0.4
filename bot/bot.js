@@ -8,43 +8,6 @@ var prefixM = 'GCm!';
 
 http.createServer(function () {}).listen(process.env.PORT || 5000);
 
-const msg1 = msg => {
-  if (authorIgnore === msg.author.id) {
-    if (msg.content === 'Yes') {
-      ignoredChannels.delete(msg.channel.id);
-      msg.reply('Channel is now not ignored.');
-      client.removeListener('message', msg1);
-    }
-    else if (msg.content === 'No') {
-      msg.reply('Channel is still ignored.');
-      client.removeListener('message', msg1);
-    }
-    else {
-      msg.reply('You did not type in the correct arguments. Please type Yes or No');
-      client.removeListener('message', msg1);
-      client.on('message', msg1_2);
-    }
-  }
-};
-
-const msg1_2 = msg => {
-  if (authorIgnore === msg.author.id) {
-    if (msg.content === 'Yes') {
-      ignoredChannels.delete(msg.channel.id);
-      msg.reply('Channel is now not ignored.');
-      client.removeListener('message', msg1_2);
-    }
-    else if (msg.content === 'No') {
-      msg.reply('Channel is still ignored.');
-      client.removeListener('message', msg1_2);
-    }
-    else {
-      msg.reply('You did not type in the correct arguments. Please try again later.');
-      client.removeListener('message', msg1_2);
-    }
-  }
-};
-
 const quest = msg => {
   if (authorQuest === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
@@ -142,6 +105,46 @@ const quest3 = msg => {
   }
 };
 
+const modPrivs = msg => {
+  if 
+
+const msgIgnore = msg => {
+  if (authorIgnore === msg.author.id) {
+    if (msg.content === 'Yes') {
+      ignoredChannels.delete(msg.channel.id);
+      msg.reply('Channel is now not ignored.');
+      client.removeListener('message', msgIgnore);
+    }
+    else if (msg.content === 'No') {
+      msg.reply('Channel is still ignored.');
+      client.removeListener('message', msgIgnore);
+    }
+    else {
+      msg.reply('You did not type in the correct arguments. Please type Yes or No');
+      client.removeListener('message', msgIgnore);
+      client.on('message', msgIgnore_1);
+    }
+  }
+};
+
+const msgIgnore_1 = msg => {
+  if (authorIgnore === msg.author.id) {
+    if (msg.content === 'Yes') {
+      ignoredChannels.delete(msg.channel.id);
+      msg.reply('Channel is now not ignored.');
+      client.removeListener('message', msgIgnore_1);
+    }
+    else if (msg.content === 'No') {
+      msg.reply('Channel is still ignored.');
+      client.removeListener('message', msgIgnore_1);
+    }
+    else {
+      msg.reply('You did not type in the correct arguments. Please try again later.');
+      client.removeListener('message', msgIgnore_1);
+    }
+  }
+};
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
@@ -199,8 +202,9 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefixM + 'moderation') {
-    msg.reply(
-    
+    msg.reply('Please state the role(s) that should have moderation privileges.');
+    client.on('message', modPrivs);
+  } 
     
   if (msg.content === prefixM + 'ignore') {
     var guildMember = msg.member;
@@ -208,7 +212,7 @@ client.on('message', msg => {
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel?');
-        client.on('message', msg1);
+        client.on('message', msgIgnore);
       }
       else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
