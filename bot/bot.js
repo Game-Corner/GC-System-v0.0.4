@@ -5,7 +5,7 @@ var ignoredChannels = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 
-http.createServer(function (req, res) {}).listen(process.env.PORT || 5000);
+http.createServer(function () {}).listen(process.env.PORT || 5000);
 
 const msg1 = msg => {
   if (authorIgnore === msg.author.id) {
@@ -152,17 +152,11 @@ client.on('guildCreate', guild => {
 });
 
 client.on('message', msg => {
-  if (msg.content === prefix + 'ping') {
-    if (ignoredChannels.has(msg.channel.id)) {}
-    else {
-      msg.reply(client.ping.toFixed(2) + ' ms');
-    }
-  }
   
-  if (msg.content === prefix + 'help') {
+  if (msg.content === prefix + 'commands') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('\n For **Information** about this bot, please type: `' + prefix + 'info` \n For the **Commands** to this bot, please type: `' + prefix + 'commands`');
+      msg.reply('**Commands:** \n To use these commands, type ' + prefix + ', along with one of the commands below. __Example:__ ' + prefix + 'ping \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `help` Provides a helpful pointer of GC System\'s two primary information commands \n 3. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
     }
   }
   
@@ -173,10 +167,17 @@ client.on('message', msg => {
     }
   }
   
-  if (msg.content === prefix + 'commands') {
+  if (msg.content === prefix + 'help') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Commands:** \n To use these commands, type ' + prefix + ', along with one of the commands below. __Example:__ ' + prefix + 'ping \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
+      msg.reply('\n For **Information** about this bot, please type: `' + prefix + 'info` \n For the **Commands** to this bot, please type: `' + prefix + 'commands`');
+    }
+  }
+
+  if (msg.content === prefix + 'ping') {
+    if (ignoredChannels.has(msg.channel.id)) {}
+    else {
+      msg.reply(client.ping.toFixed(2) + ' ms');
     }
   }
   
