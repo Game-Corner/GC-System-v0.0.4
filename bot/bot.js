@@ -183,7 +183,7 @@ client.on('message', msg => {
   if (msg.content === prefixM + 'commands') {
     var guildMember = msg.member;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
-      msg.reply('**Commands:** \n To use these commands, type ' + prefixM + ', along with one of the commands below. __Example:__ ' + prefix + 'ignore \n  1. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
+      msg.reply('**Commands:** \n To use these commands, type ' + prefixM + ', along with one of the commands below. __Example:__ ' + prefix + 'ignore \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
     }
     else {
       msg.reply('You do not have the permissions to use these commands.');
