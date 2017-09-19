@@ -2,6 +2,7 @@ const http = require('http');
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var ignoredChannels = new Map();
+var moderationRoles
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 
@@ -196,6 +197,10 @@ client.on('message', msg => {
     authorQuest = msg.author.id;
     client.on('message', quest);
   }
+  
+  if (msg.content === prefixM + 'moderation') {
+    msg.reply(
+    
     
   if (msg.content === prefixM + 'ignore') {
     var guildMember = msg.member;
