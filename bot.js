@@ -131,7 +131,7 @@ const quest3 = msg => {
     }
     else if (msg.content === 'Everyone' || msg.content === 'everyone') {
       msg.reply('What should the new Everyone prefix be?');
-      client.removeListener('message', quest);
+      client.removeListener('message', quest3);
       client.on('message', quest2);
     }
     else {
