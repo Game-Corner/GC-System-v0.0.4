@@ -9,7 +9,7 @@ var prefixM = 'GCm!';
 http.createServer(function () {}).listen(process.env.PORT || 5000);
 
 const quest = msg => {
-  if (authorQuest === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
       msg.reply('What should the new Moderator prefix be?');
       client.removeListener('message', quest);
@@ -29,7 +29,7 @@ const quest = msg => {
 };
 
 const quest1 = msg => {
-  if (authorQuest === msg.author.id) { 
+  if (author === msg.author.id) { 
     if (msg.content.length > 4 || msg.content.length < 1) {
       msg.reply('The prefix must be between 1 and 4 characters long. Please try again.');
       client.removeListener('message', quest1);
@@ -44,7 +44,7 @@ const quest1 = msg => {
 };
 
 const quest1_1 = msg => {
-  if (authorQuest === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content.length > 4 || msg.content.length < 1) {
       msg.reply('The prefix must be between 1 and 4 characters long. Please try again later.');
       client.removeListener('message', quest1_1);
@@ -58,7 +58,7 @@ const quest1_1 = msg => {
 };
 
 const quest2 = msg => {
-  if (authorQuest === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content.length > 4 || msg.content.length < 1) {
       msg.reply('The prefix must be between 1 and 4 characters long. Please try again.');
       client.removeListener('message', quest2);
@@ -73,7 +73,7 @@ const quest2 = msg => {
 };
 
 const quest2_1 = msg => {
-  if (authorQuest === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content.length > 4 || msg.content.length < 1) {
       msg.reply('The prefix must be between 1 and 4 characters long. Please try again later.');
       client.removeListener('message', quest2_1);
@@ -87,7 +87,7 @@ const quest2_1 = msg => {
 };    
 
 const quest3 = msg => {
-  if (authorQuest === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
       msg.reply('What should the new Moderator prefix be?');
       client.removeListener('message', quest3);
@@ -109,7 +109,7 @@ const modPrivs = msg => {
   if 
 
 const msgIgnore = msg => {
-  if (authorIgnore === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content === 'Yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
@@ -128,7 +128,7 @@ const msgIgnore = msg => {
 };
 
 const msgIgnore_1 = msg => {
-  if (authorIgnore === msg.author.id) {
+  if (author === msg.author.id) {
     if (msg.content === 'Yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
@@ -156,18 +156,20 @@ client.on('guildCreate', guild => {
 });
 
 client.on('message', msg => {
+  var guildMember = msg.member;
+  author = msg.author.id;
   
   if (msg.content === prefix + 'commands') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Commands:** \n To use these commands, type ' + prefix + ', along with one of the commands below. __Example:__ ' + prefix + 'ping \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `help` Provides a helpful pointer of GC System\'s two primary information commands \n 3. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
+      msg.reply('**Everyone Commands:** \n To use these commands, type `' + prefix + '`, along with one of the commands below. __Example:__ ' + prefix + 'ping \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `help` Provides a helpful pointer of GC System\'s two primary information commands \n 3. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
     }
   }
   
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. GitHub: https://github.com/Game-Corner/GC-System');
+      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. Join Link: https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790 \n 4. GitHub: https://github.com/Game-Corner/GC-System');
     }
   }
   
@@ -186,9 +188,8 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefixM + 'commands') {
-    var guildMember = msg.member;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
-      msg.reply('**Commands:** \n To use these commands, type ' + prefixM + ', along with one of the commands below. __Example:__ ' + prefix + 'ignore \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
+      msg.reply('**Moderator Commands:** \n To use these commands, type `' + prefixM + '`, along with one of the commands below. __Example:__ ' + prefix + 'ignore \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
     }
     else {
       msg.reply('You do not have the permissions to use these commands.');
@@ -197,7 +198,6 @@ client.on('message', msg => {
   
   if (msg.content === prefixM + 'setPrefix') {
     msg.reply('Would you like to change the Everyone or the Moderator prefix?');
-    authorQuest = msg.author.id;
     client.on('message', quest);
   }
   
@@ -207,8 +207,6 @@ client.on('message', msg => {
   } 
     
   if (msg.content === prefixM + 'ignore') {
-    var guildMember = msg.member;
-    authorIgnore = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel?');
