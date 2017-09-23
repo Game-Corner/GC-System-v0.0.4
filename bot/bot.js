@@ -182,9 +182,6 @@ client.on('guildCreate', guild => {
 });
 
 client.on('message', msg => {
-  var guildMember = msg.member;
-  author = msg.author.id;
-  
   if (msg.content === prefix + 'commands') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
@@ -214,6 +211,7 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefixM + 'commands') {
+    var guildMember = msg.member;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
       msg.reply('**Moderator Commands:** \n To use these commands, type `' + prefixM + '`, along with one of the commands below. __Example:__ ' + prefix + 'ignore \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
     }
@@ -223,16 +221,20 @@ client.on('message', msg => {
   }
   
   if (msg.content === prefixM + 'setPrefix') {
+    author = msg.author.id;
     msg.reply('Would you like to change the Everyone or the Moderator prefix?');
     client.on('message', quest);
   }
   
   if (msg.content === prefixM + 'setMods') {
+    author = msg.author.id;
     msg.reply('Please state the role(s) that should have moderation privileges.');
     client.on('message', modPrivs);
   } 
     
   if (msg.content === prefixM + 'ignore') {
+    var guildMember = msg.member;
+    author = msg.author.id;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel?');
