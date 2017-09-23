@@ -107,7 +107,7 @@ const quest3 = msg => {
 
 const modPrivs = msg => {
   if (author === msg.author.id) {
-    if (msg.mentions = false) {
+    if (msg.mentions.roles.size < 1) {
       msg.reply('Please __mention__ the role(s) that should have moderation privileges.');
       client.removeListener('message', modPrivs);
       client.on('message', modPrivs_1);
@@ -122,7 +122,7 @@ const modPrivs = msg => {
 
 const modPrivs_1 = msg => {
   if (author === msg.author.id) {
-    if (msg.mentions = false) {
+    if (msg.mentions.roles.size < 1) {
       msg.reply('You did not type in the correct arguments. Please try again later.');
       client.removeListener('message', modPrivs_1);
     }
@@ -227,7 +227,7 @@ client.on('message', msg => {
     client.on('message', quest);
   }
   
-  if (msg.content === prefixM + 'moderation') {
+  if (msg.content === prefixM + 'setMods') {
     msg.reply('Please state the role(s) that should have moderation privileges.');
     client.on('message', modPrivs);
   } 
