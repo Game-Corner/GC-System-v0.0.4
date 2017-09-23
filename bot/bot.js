@@ -106,27 +106,31 @@ const quest3 = msg => {
 };
 
 const modPrivs = msg => {
-  if (msg.mentions = false) {
-    msg.reply('Please __mention__ the role(s) that should have moderation privileges.');
-    client.removeListener('message', modPrivs);
-    client.on('message', modPrivs_1);
-  }
-  else {
-    moderationRoles.set(msg.mentions.roles);
-    msg.reply('The new roles with moderator privaleges are: ' + moderationRoles.toString() );
-    client.removeListener('message', modPrivs);
+  if (author === msg.author.id) {
+    if (msg.mentions = false) {
+      msg.reply('Please __mention__ the role(s) that should have moderation privileges.');
+      client.removeListener('message', modPrivs);
+      client.on('message', modPrivs_1);
+    }
+    else {
+      moderationRoles.set(msg.mentions.roles);
+      msg.reply('The new roles with moderator privaleges are: ' + moderationRoles.toString() );
+      client.removeListener('message', modPrivs);
+    }
   }
 };
 
 const modPrivs_1 = msg => {
-  if (msg.mentions = false) {
-    msg.reply('You did not type in the correct arguments. Please try again later.');
-    client.removeListener('message', modPrivs_1);
-  }
-  else {
-    moderationRoles.set(msg.mentions.roles);
-    msg.reply('The new roles with moderator privaleges are: ' + moderationRoles.toString() );
-    client.removeListener('message', modPrivs_1);
+  if (author === msg.author.id) {
+    if (msg.mentions = false) {
+      msg.reply('You did not type in the correct arguments. Please try again later.');
+      client.removeListener('message', modPrivs_1);
+    }
+    else {
+      moderationRoles.set(msg.mentions.roles);
+      msg.reply('The new roles with moderator privaleges are: ' + moderationRoles.toString() );
+      client.removeListener('message', modPrivs_1);
+    }
   }
 };
  
