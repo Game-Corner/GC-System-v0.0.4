@@ -6,10 +6,11 @@ var moderationRoles = new Map();
 var mapOther = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
+var date = new Date();
 
 http.createServer(function () {}).listen(process.env.PORT || 5000);
 
-if (6 <= getHours() <= 22) {
+if (6 <= date.getHours() <= 22) {
   setInterval(function() {
     http.get("https://gc-system.herokuapp.com/");
   }, 300000); // every 5 minutes (300000)
