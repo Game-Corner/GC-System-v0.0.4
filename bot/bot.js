@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var ignoredChannels = new Map();
 var moderationRoles = new Map();
+var mapOther = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 
@@ -130,10 +131,10 @@ const modPrivs = msg => {
         }
         moderationRoles.set(key, value);
       });
-      if (moderationRoles.size = 1) {
+      if (moderationRoles.size <= 1) {
         plurals_1 = '';
       }
-      else {
+      else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
       moderationRoles.forEach(function (value) {
@@ -163,10 +164,10 @@ const modPrivs_1 = msg => {
         }
         moderationRoles.set(key, value);
       });
-      if (moderationRoles.size = 1) {
+      if (moderationRoles.size <= 1) {
         plurals_1 = '';
       }
-      else {
+      else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
       moderationRoles.forEach(function (value) {
