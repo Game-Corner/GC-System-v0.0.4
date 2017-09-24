@@ -117,7 +117,7 @@ const modPrivs = msg => {
         moderationRoles.set(key, value);
       });
       moderationRoles.forEach(function (value, key, mapObj) {
-        mentionedRoles = value.toString + ', '
+        mentionedRoles = value.toString() + ', ';
       });
       msg.reply('The new roles with moderator privaleges are: ' + mentionedRoles);
       client.removeListener('message', modPrivs);
@@ -136,7 +136,7 @@ const modPrivs_1 = msg => {
         moderationRoles.set(key, value);
       });
       moderationRoles.forEach(function (value, key, mapObj) {
-        mentionedRoles = value.toString + ', '
+        mentionedRoles = value.toString() + ', ';
       });
       msg.reply('The new roles with moderator privaleges are: ' + mentionedRoles);
       client.removeListener('message', modPrivs_1);
