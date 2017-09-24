@@ -138,7 +138,11 @@ const modPrivs = msg => {
       else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
-      msg.reply('The new roles with moderator privaleges are: \n' + moderationRoles.toString());
+      var values = '';
+      moderationRoles.forEach(function (value) {
+        values += value + plurals_1
+      });
+      msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs);
     }
   }
@@ -168,8 +172,12 @@ const modPrivs_1 = msg => {
       else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
-      msg.reply('The new roles with moderator privaleges are: \n' + moderationRoles.toString());
-      client.removeListener('message', modPrivs_1);
+      var values = '';
+      moderationRoles.forEach(function (value) {
+        values += value + plurals_1
+      });
+      msg.reply('The new roles with moderator privaleges are: \n' + values);
+      client.removeListener('message', modPrivs);
     }
   }
 };
