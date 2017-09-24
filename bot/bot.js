@@ -12,7 +12,7 @@ http.createServer(function () {}).listen(process.env.PORT || 5000);
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
-    https.get("https://gc-system.herokuapp.com/");
+    http.get("http://gc-system.herokuapp.com/");
   }, 300000); // every 5 minutes (300000)
 };
 
@@ -138,10 +138,7 @@ const modPrivs = msg => {
       else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
-      moderationRoles.forEach(function (value) {
-        addedRoles = value.toString() + plurals_1;
-      });
-      msg.reply('The new roles with moderator privaleges are: ' + addedRoles);
+      msg.reply('The new roles with moderator privaleges are: \n' + moderationRoles.valueOf());
       client.removeListener('message', modPrivs);
     }
   }
@@ -171,11 +168,8 @@ const modPrivs_1 = msg => {
       else if (moderationRoles.size > 1) {
         plurals_1 = ', ';
       }
-      moderationRoles.forEach(function (value) {
-        addedRoles = value.toString() + plurals_1;
-      });
-      msg.reply('The new roles with moderator privaleges are: ' + addedRoles);
-      client.removeListener('message', modPrivs_1);
+      msg.reply('The new roles with moderator privaleges are: \n' + moderationRoles.valueOf());
+      client.removeListener('message', modPrivs);
     }
   }
 };
