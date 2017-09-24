@@ -141,6 +141,9 @@ const modPrivs = msg => {
       var values = '';
       moderationRoles.forEach(function (value) {
         values += value + plurals_1
+        if (moderationRoles.size > 1) {
+          values -= ', '
+        }
       });
       msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs);
@@ -175,9 +178,12 @@ const modPrivs_1 = msg => {
       var values = '';
       moderationRoles.forEach(function (value) {
         values += value + plurals_1
+        if (moderationRoles.size > 1) {
+          values -= ', '
+        }
       });
       msg.reply('The new roles with moderator privaleges are: \n' + values);
-      client.removeListener('message', modPrivs);
+      client.removeListener('message', modPrivs_1);
     }
   }
 };
