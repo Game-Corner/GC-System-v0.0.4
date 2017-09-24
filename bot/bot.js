@@ -143,7 +143,7 @@ const modPrivs = msg => {
         values += value + plurals_1
       });
       if (moderationRoles.size > 1) {
-          values.slice(0,-2);
+          values.slice(0,-3);
        }
       msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs);
@@ -180,7 +180,7 @@ const modPrivs_1 = msg => {
         values += value + plurals_1
       });
       if (moderationRoles.size > 1) {
-          values.slice(0,-2);
+          values.slice(0,-3);
        }
       msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs_1);
