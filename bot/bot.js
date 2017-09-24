@@ -108,24 +108,32 @@ const quest3 = msg => {
 const modPrivs = msg => {
   if (author === msg.author.id) {
     if (msg.mentions.roles.size < 1) {
-      msg.reply('Please __mention__ the role(s) that should have moderation privileges.');
+      msg.reply('Please __mention__ the role(s) that should (or shouldn\'t anymore) have moderation privileges.');
       client.removeListener('message', modPrivs);
       client.on('message', modPrivs_1);
     }
     else {
-      msg.mentions.roles.forEach(function (value, key, mapObj) {
+      var mapOther
+      msg.mentions.roles.forEach(function (value, key) {
+        mapOther.set(key, value);
+      });
+      mapOther.forEach(function (value, key) {
+        if (moderationRoles.has(key)) {
+          moderationRoles.delete(key);
+          mapOther.delete(key);
+        }
         moderationRoles.set(key, value);
       });
       if (moderationRoles.size = 1) {
-        plurals_1 = ', ';
-      }
-      else {
         plurals_1 = '';
       }
-      moderationRoles.forEach(function (value, key, mapObj) {
-        mentionedRoles = value.toString() + plurals_1;
+      else {
+        plurals_1 = ', ';
+      }
+      moderationRoles.forEach(function (value) {
+        addedRoles = value.toString() + plurals_1;
       });
-      msg.reply('The new roles with moderator privaleges are: ' + mentionedRoles);
+      msg.reply('The new roles with moderator privaleges are: ' + addedRoles);
       client.removeListener('message', modPrivs);
     }
   }
@@ -138,20 +146,28 @@ const modPrivs_1 = msg => {
       client.removeListener('message', modPrivs_1);
     }
     else {
-      msg.mentions.roles.forEach(function (value, key, mapObj) {
+      var mapOther
+      msg.mentions.roles.forEach(function (value, key) {
+        mapOther.set(key, value);
+      });
+      mapOther.forEach(function (value, key) {
+        if (moderationRoles.has(key)) {
+          moderationRoles.delete(key);
+          mapOther.delete(key);
+        }
         moderationRoles.set(key, value);
       });
       if (moderationRoles.size = 1) {
-        plurals_1 = ', ';
-      }
-      else {
         plurals_1 = '';
       }
-      moderationRoles.forEach(function (value, key, mapObj) {
-        mentionedRoles = value.toString() + plurals_1;
+      else {
+        plurals_1 = ', ';
+      }
+      moderationRoles.forEach(function (value) {
+        addedRoles = value.toString() + plurals_1;
       });
-      msg.reply('The new roles with moderator privaleges are: ' + mentionedRoles);
-      client.removeListener('message', modPrivs);
+      msg.reply('The new roles with moderator privaleges are: ' + addedRoles);
+      client.removeListener('message', modPrivs_1);
     }
   }
 };
@@ -250,7 +266,7 @@ client.on('message', msg => {
   
   if (msg.content === prefixM + 'setMods') {
     author = msg.author.id;
-    msg.reply('Please state the role(s) that should have moderation privileges.');
+    msg.reply('Please state the role(s) that should (or shouldn\'t) have moderation privileges.');
     client.on('message', modPrivs);
   } 
     
