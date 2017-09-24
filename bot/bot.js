@@ -113,7 +113,7 @@ const modPrivs = msg => {
       client.on('message', modPrivs_1);
     }
     else {
-      var mapOther
+      var mapOther = new Map();
       msg.mentions.roles.forEach(function (value, key) {
         mapOther.set(key, value);
       });
@@ -146,7 +146,7 @@ const modPrivs_1 = msg => {
       client.removeListener('message', modPrivs_1);
     }
     else {
-      var mapOther
+      var mapOther = new Map();
       msg.mentions.roles.forEach(function (value, key) {
         mapOther.set(key, value);
       });
