@@ -169,7 +169,7 @@ const modPrivs_1 = msg => {
         plurals_1 = ', ';
       }
       msg.reply('The new roles with moderator privaleges are: \n' + moderationRoles.valueOf());
-      client.removeListener('message', modPrivs);
+      client.removeListener('message', modPrivs_1);
     }
   }
 };
