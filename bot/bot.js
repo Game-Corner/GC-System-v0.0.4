@@ -12,7 +12,7 @@ http.createServer(function () {}).listen(process.env.PORT || 5000);
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
-    http.get("https://gc-system.herokuapp.com/");
+    https.get("https://gc-system.herokuapp.com/");
   }, 300000); // every 5 minutes (300000)
 };
 
@@ -231,7 +231,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'commands') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Everyone Commands:** \n To use these commands, type `' + prefix + '`, along with one of the commands below. __Example:__ ' + prefix + 'ping \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `help` Provides a helpful pointer of GC System\'s two primary information commands \n 3. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
+      msg.reply('**Everyone Commands:** \n To use these commands, type `' + prefix + '`, along with one of the commands below. __Example:__ `' + prefix + 'ping` \n 1. `info` Provides information about Game Corner System and Game Corner \n 2. `help` Provides a helpful pointer of GC System\'s two primary information commands \n 3. `ping` States the current ping of the bot \n **For Moderator commands, please use:** `' + prefixM + 'commands`');
     }
   }
   
@@ -259,7 +259,7 @@ client.on('message', msg => {
   if (msg.content === prefixM + 'commands') {
     var guildMember = msg.member;
     if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
-      msg.reply('**Moderator Commands:** \n To use these commands, type `' + prefixM + '`, along with one of the commands below. __Example:__ ' + prefix + 'ignore \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
+      msg.reply('**Moderator Commands:** \n To use these commands, type `' + prefixM + '`, along with one of the commands below. __Example:__ `' + prefix + 'ignore` \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
     }
     else {
       msg.reply('You do not have the permissions to use these commands.');
@@ -274,7 +274,7 @@ client.on('message', msg => {
   
   if (msg.content === prefixM + 'setMods') {
     author = msg.author.id;
-    msg.reply('Please state the role(s) that should (or shouldn\'t) have moderation privileges.');
+    msg.reply('Please state the role(s) that should (or shouldn\'t anymore) have moderation privileges.');
     client.on('message', modPrivs);
   } 
     
