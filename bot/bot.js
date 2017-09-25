@@ -133,8 +133,8 @@ const modPrivs = msg => {
         moderationRoles.set(key, value);
       });
       var values = '';
-      moderationRoles.forEach(function (value) {
-        values += value + ' ';
+      moderationRoles.forEach(function (value, key) {
+        values += value + ' ' + key;
       });
       msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs);
