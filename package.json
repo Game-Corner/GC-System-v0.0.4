@@ -5,6 +5,10 @@
   "main": "bot.js",
   "dependencies": {
     "discord.js": "^11.1.0"
+    "better-js-class": "*",
+    "cps": "*",
+    "mysql": "*",
+    "underscore": "*"
   },
   "devDependencies": {},
   "scripts": {
