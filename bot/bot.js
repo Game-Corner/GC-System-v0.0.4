@@ -135,8 +135,8 @@ const modPrivs = msg => {
         moderationRoles.set(key, value);
       });
       var values = '';
-      moderationRoles.forEach(function (value, key) {
-        values += value + ' ' + key;
+      moderationRoles.forEach(function (value) {
+        values += value + ' ';
       });
       msg.reply('The new roles with moderator privaleges are: \n' + values);
       client.removeListener('message', modPrivs);
@@ -165,11 +165,11 @@ const modPrivs_1 = msg => {
         moderationRoles.set(key, value);
       });
       var values = '';
-      moderationRoles.forEach(function (value, key) {
-        values += value + ' ' + key;
+      moderationRoles.forEach(function (value) {
+        values += value + ' ';
       });
       msg.reply('The new roles with moderator privaleges are: \n' + values);
-      client.removeListener('message', modPrivs);
+      client.removeListener('message', modPrivs_1);
     }
   }
 };
