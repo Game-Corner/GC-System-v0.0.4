@@ -4,9 +4,9 @@ var BaseRow = db.Row;
 var BaseTable = db.Table;
 
 var box = new DB({
-    host     : '',
-    user     : '',
-    password : '',
+    host     : process.env.JAWSDB_MARIA_HOST,
+    user     : process.env.JAWSDB_MARIA_USER,
+    password : process.env.JAWSDB_MARIA_PASSWORD,
     database : 'gc-system'
 });
 
