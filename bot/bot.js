@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 var ignoredChannels = new Map();
 var moderationRoles = new Map();
-var mapOther = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 var date = new Date();
@@ -15,6 +14,7 @@ if (6 <= date.getHours() <= 22) {
     http.get("http://gc-system.herokuapp.com/");
   }, 300000); // every 5 minutes (300000)
 };
+
 
 const quest = msg => {
   if (author === msg.author.id) {
@@ -273,9 +273,14 @@ client.on('message', msg => {
   } 
     
   if (msg.content === prefixM + 'ignore') {
-    var guildMember = msg.member;
+    var guild = msg.guild;
     author = msg.author.id;
-    if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {
+    moderationRoles.forEach(function (key) {
+      if (msg.member.roles.has(key) {
+        aKey = true;
+      }
+    });
+    if (msg.author.id === guild.ownerID || aKey = true) {
       if (ignoredChannels.has(msg.channel.id)) {
         msg.reply('Would you like to stop ignoring this channel?');
         client.on('message', msgIgnore);
