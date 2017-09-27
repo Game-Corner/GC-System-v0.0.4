@@ -252,7 +252,13 @@ client.on('message', msg => {
   
   if (msg.content === prefixM + 'commands') {
     var guildMember = msg.member;
-    if (guildMember.hasPermission('MANAGE_GUILD', false, true, true)) {  
+    author = msg.author.id;
+    moderationRoles.forEach(function (key) {
+      if (msg.member.roles.has(key)) {
+        aKey = true;
+      }
+    });
+    if (author == msg.guild.ownerID || aKey == true) { 
       msg.reply('**Moderator Commands:** \n To use these commands, type `' + prefixM + '`, along with one of the commands below. __Example:__ `' + prefix + 'ignore` \n 1. `setPrefix` Allows for the Moderator and Everyone prefixes to be changed \n 2. `ignore` Ignores all Everyone commands from the channel the command was sent in \n **For Everyone commands, please use:** `' + prefix + 'commands`');
     }
     else {
@@ -262,14 +268,34 @@ client.on('message', msg => {
   
   if (msg.content === prefixM + 'setPrefix') {
     author = msg.author.id;
-    msg.reply('Would you like to change the Everyone or the Moderator prefix?');
-    client.on('message', quest);
+    moderationRoles.forEach(function (key) {
+      if (msg.member.roles.has(key)) {
+        aKey = true;
+      }
+    });
+    if (author == msg.guild.ownerID || aKey == true) {
+      msg.reply('Would you like to change the Everyone or the Moderator prefix?');
+      client.on('message', quest);
+    }
+    else {
+      msg.reply('You do not have the permissions to do this.');
+    }
   }
   
   if (msg.content === prefixM + 'setMods') {
     author = msg.author.id;
-    msg.reply('Please state the role(s) that should (or shouldn\'t anymore) have moderation privileges.');
-    client.on('message', modPrivs);
+    moderationRoles.forEach(function (key) {
+      if (msg.member.roles.has(key)) {
+        aKey = true;
+      }
+    });
+    if (author == msg.guild.ownerID || aKey == true) {
+      msg.reply('Please state the role(s) that should (or shouldn\'t anymore) have moderation privileges.');
+      client.on('message', modPrivs);
+    }
+    else {
+      msg.reply('You do not have the permissions to do this.');
+    }
   } 
     
   if (msg.content === prefixM + 'ignore') {
@@ -278,15 +304,15 @@ client.on('message', msg => {
       if (msg.member.roles.has(key)) {
         aKey = true;
       }
-  });
-  if (author == msg.guild.ownerID || aKey == true) {
-    if (ignoredChannels.has(msg.channel.id)) {
-      msg.reply('Would you like to stop ignoring this channel?');
-      client.on('message', msgIgnore);
-    }
-    else {
-      ignoredChannels.set(msg.channel.id, msg.channel.name);
-      msg.reply('Channel is now ignored.');
+    });
+    if (author == msg.guild.ownerID || aKey == true) {
+      if (ignoredChannels.has(msg.channel.id)) {
+        msg.reply('Would you like to stop ignoring this channel?');
+        client.on('message', msgIgnore);
+      }
+      else {
+        ignoredChannels.set(msg.channel.id, msg.channel.name);
+        msg.reply('Channel is now ignored.');
       }
     }
     else {
