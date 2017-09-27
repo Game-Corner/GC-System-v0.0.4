@@ -5,6 +5,7 @@
   "main": "bot.js",
   "dependencies": {
     "discord.js": "^11.1.0",
+    "express": "^4.15.5",
     "better-js-class": "*",
     "cps": "*",
     "mysql": "*",
