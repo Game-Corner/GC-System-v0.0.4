@@ -9,16 +9,18 @@ var prefix = 'GC!';
 var prefixM = 'GCm!';
 var date = new Date();
 
+app.set('port', (process.env.PORT || 5000));
+
 app.set('views', __dirname + '/site');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  response.render('index');
 });
 
-app.listen(3000, function () {
-  console.log('Connected. Listening on port 3000.')
-})
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
