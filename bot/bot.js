@@ -1,4 +1,6 @@
 const http = require('http'); 
+const express = require('express')
+const app = express()
 const Discord = require("discord.js");
 const client = new Discord.Client();
 var ignoredChannels = new Map();
@@ -7,7 +9,16 @@ var prefix = 'GC!';
 var prefixM = 'GCm!';
 var date = new Date();
 
-http.createServer(function () {}).listen(process.env.PORT || 5000);
+app.set('views', __dirname + '/site');
+app.set('view engine', 'ejs');
+
+app.get('/', function(request, response) {
+  response.render('pages/index');
+});
+
+app.listen(3000, function () {
+  console.log('Connected. Listening on port 3000.')
+})
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
