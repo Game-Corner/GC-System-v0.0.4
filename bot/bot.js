@@ -3,6 +3,8 @@ const express = require('express')
 const app = express()
 const Discord = require("discord.js");
 const client = new Discord.Client();
+var favicon = require('serve-favicon');
+var path = require('path');
 var ignoredChannels = new Map();
 var moderationRoles = new Map();
 var prefix = 'GC!';
@@ -21,6 +23,8 @@ app.get('/', function(request, response) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
+
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
