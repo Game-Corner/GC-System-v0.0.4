@@ -276,7 +276,7 @@ client.on('message', msg => {
     var guild = msg.guild;
     author = msg.author.id;
     moderationRoles.forEach(function (key) {
-      if (msg.member.roles.has(key) {
+      if (msg.member.roles.has(key)) {
         aKey = true;
       }
     });
