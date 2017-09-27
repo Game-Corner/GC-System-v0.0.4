@@ -18,7 +18,9 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
+/*
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
+*/
 
 if (6 <= date.getHours() <= 22) {
   setInterval(function() {
