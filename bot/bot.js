@@ -278,13 +278,13 @@ client.on('message', msg => {
       if (msg.member.roles.has(key)) {
         aKey = true;
       }
-    });
-    if (msg.author.id == msg.guild.ownerID || aKey = true) {
-      if (ignoredChannels.has(msg.channel.id)) {
-        msg.reply('Would you like to stop ignoring this channel?');
-        client.on('message', msgIgnore);
-      }
-      else {
+  });
+  if (author == msg.guild.ownerID || aKey == true) {
+    if (ignoredChannels.has(msg.channel.id)) {
+      msg.reply('Would you like to stop ignoring this channel?');
+      client.on('message', msgIgnore);
+    }
+    else {
       ignoredChannels.set(msg.channel.id, msg.channel.name);
       msg.reply('Channel is now ignored.');
       }
