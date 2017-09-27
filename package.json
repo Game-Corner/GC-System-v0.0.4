@@ -7,10 +7,7 @@
     "discord.js": "^11.1.0",
     "ejs": "^2.5.7",
     "express": "^4.15.5",
-    "better-js-class": "*",
-    "cps": "*",
-    "mysql": "*",
-    "underscore": "*"
+    "mysql": "^2.14.1"
   },
   "devDependencies": {},
   "scripts": {
