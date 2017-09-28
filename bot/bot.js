@@ -19,15 +19,16 @@ var con = mysql.createConnection({
   database: "gc-system"
 });
 
-con.connect();
-
 con.connect(function(err) {
-  if (err) throw err;
-  console.log("MySQL connected!");
+  if (err) {
+    console.error('error connecting: ' + err.stack);
+    return;
+  }
   var sql = "CREATE TABLE servers (name VARCHAR(36), ID VARCHAR(20))";
   con.query(sql, function (err, result) {
     console.log("Table created");
   });
+  console.log('connected as id ' + connection.threadId);
 });
 
 app.set('port', (process.env.PORT || 5000));
