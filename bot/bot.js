@@ -3,7 +3,6 @@ const express = require('express')
 const app = express()
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const { Client } = require('pg');
 var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
@@ -35,30 +34,6 @@ setInterval(function() {
   }
 }, 300000); // every 5 minutes (300000)
 
-const con = new Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true,
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  CREATE TABLE weather (
-    city varchar(80),
-    temp_lo int,
-    temp_hi int,
-    prcp real,
-    date date
-  );
-);
-
-con.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  con.end();
-});
 
 const quest = msg => {
   if (author === msg.author.id) {
