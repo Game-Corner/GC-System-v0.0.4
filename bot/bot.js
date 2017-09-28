@@ -40,7 +40,17 @@ const con = new Client({
   ssl: true,
 });
 
-con.connect();
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  CREATE TABLE weather (
+    city varchar(80),
+    temp_lo int,
+    temp_hi int,
+    prcp real,
+    date date
+  );
+);
 
 con.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
   if (err) throw err;
