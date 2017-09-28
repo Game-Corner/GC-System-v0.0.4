@@ -1,4 +1,5 @@
 const http = require('http'); 
+const pg = require('pg');
 const express = require('express')
 const app = express()
 const Discord = require("discord.js");
@@ -34,6 +35,20 @@ setInterval(function() {
   }
 }, 300000); // every 5 minutes (300000)
 
+const con = new pg({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+con.connect();
+
+con.query('CREATE DATABASE gc-system OWNER process.env.DATABASE_USER', (err, res) => {
+  if (err) throw err;
+  for (let tables of res.tables) {
+    console.log(JSON.stringify(row));
+  }
+  con.end();
+});
 
 const quest = msg => {
   if (author === msg.author.id) {
