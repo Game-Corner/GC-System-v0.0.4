@@ -37,7 +37,7 @@ setInterval(function() {
 
 const con = new Client({
   connectionString: process.env.DATABASE_URL,
-  ssl: true,
+  ssl: true
 });
 
 con.connect();
@@ -45,7 +45,7 @@ con.connect();
 con.query('CREATE DATABASE gc-system OWNER process.env.DATABASE_USER', (err, res) => {
   if (err) throw err;
   for (let tables of res.tables) {
-    console.log(JSON.stringify(row));
+    console.log(JSON.stringify(tables));
   }
   con.end();
 });
