@@ -1,5 +1,5 @@
 const http = require('http'); 
-const pg = require('pg');
+const { Client } = require('pg');
 const express = require('express')
 const app = express()
 const Discord = require("discord.js");
@@ -35,7 +35,7 @@ setInterval(function() {
   }
 }, 300000); // every 5 minutes (300000)
 
-const con = new pg({
+const con = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
 });
