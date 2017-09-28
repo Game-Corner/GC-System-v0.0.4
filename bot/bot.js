@@ -48,12 +48,11 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
-if (6 <= date.getHours() <= 22) {
-  setInterval(function() {
+setInterval(function() {
+  if (6 <= date.getHours() <= 22) {
     http.get("http://gc-system.herokuapp.com/");
-  }, 300000); // every 5 minutes (300000)
-};
-
+  }
+}, 300000); // every 5 minutes (300000)
 
 const quest = msg => {
   if (author === msg.author.id) {
