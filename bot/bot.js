@@ -19,12 +19,13 @@ var con = mysql.createConnection({
   database: "gc-system"
 });
 
+con.connect();
+
 con.connect(function(err) {
   if (err) throw err;
   console.log("MySQL connected!");
   var sql = "CREATE TABLE servers (name VARCHAR(36), ID VARCHAR(20))";
   con.query(sql, function (err, result) {
-    if (err) throw err;
     console.log("Table created");
   });
 });
