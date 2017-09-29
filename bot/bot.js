@@ -42,7 +42,7 @@ const con = new Client({
 
 con.connect();
 
-con.query('CREATE VIEW table1 AS SELECT name FROM servers;', (err, res) => {
+con.query('DROP VIEW table1;', (err, res) => {
   /* 
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
