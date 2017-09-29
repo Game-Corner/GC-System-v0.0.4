@@ -43,7 +43,7 @@ const con = new Client({
 con.connect();
 
 con.query('CREATE DATABASE gc-system OWNER process.env.DATABASE_USER', (err, res) => {
-  if (err) throw err;
+  if err throw err;
   for (let tables of res.tables) {
     console.log(JSON.stringify(tables));
   }
