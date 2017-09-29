@@ -42,7 +42,7 @@ const con = new Client({
 
 con.connect();
 
-con.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+con.query('CREATE TABLE servers (name VARCHART(36), ID INT(30));', (err, res) => {
   if (err) throw err;
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
