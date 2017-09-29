@@ -42,7 +42,8 @@ const con = new Client({
 
 con.connect();
 
-con.query('DROP VIEW table1;', (err, res) => {
+con.query('SELECT FROM servers;', (err, res) => {
+  console.log(res.rows);
   /* 
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
