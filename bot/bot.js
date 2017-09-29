@@ -43,9 +43,11 @@ const con = new Client({
 con.connect();
 
 con.query('CREATE TABLE servers (name VARCHART(36), ID INT(30));', (err, res) => {
+  /* 
   for (let row of res.rows) {
     console.log(JSON.stringify(row));
   }
+  */
   con.end();
 });
 
