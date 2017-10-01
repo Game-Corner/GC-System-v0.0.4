@@ -42,7 +42,7 @@ const con = new Client({
 
 con.connect();
 
-con.query('SELECT * FROM servers;', (err, res) => {
+con.query('CREATE TABLE servers (name varchar(36), ID int);', (err, res) => {
   console.log(res);
   /* 
   for (let row of res.rows) {
