@@ -42,15 +42,11 @@ const con = new Client({
 
 con.connect();
 
-con.query('CREATE TABLE servers (name varchar(36), ID int);', (err, res) => {
+/*
+con.query(queryString, (err, res) => {
   console.log(res);
-  /* 
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  */
-  con.end();
 });
+*/
 
 const quest = msg => {
   if (author === msg.author.id) {
@@ -255,6 +251,7 @@ client.on('ready', () => {
 
 client.on('guildCreate', guild => {
   guild.owner.send('Game Corner System has joined your server! To learn more about this bot, please type `GC!info` in ' + guild.name + '. To configure this bot\'s moderation and functions, please type `GCm!info` in ' + guild.name + '.');
+  
 });
 
 client.on('message', msg => {
