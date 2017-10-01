@@ -42,7 +42,7 @@ const con = new Client({
 
 con.connect();
 
-con.query('INSERT INTO servers names VALUES \'GCUS\';', (err, res) => {
+con.query('SELECT * FROM servers;', (err, res) => {
   console.log(res);
   /* 
   for (let row of res.rows) {
