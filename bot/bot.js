@@ -56,7 +56,7 @@ client.guilds.forEach(function(key, value) {
 });
 */
 
-con.query('INSERT INTO Servers (ID, Name) VALUES (039482093849839, \'GCUS\');', (err, res) => {
+con.query('SELECT * FROM Servers;', (err, res) => {
   console.log(res);
   con.end();
 });
