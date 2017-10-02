@@ -56,7 +56,7 @@ client.guilds.forEach(function(key, value) {
 });
 */
 
-con.query('CREATE TABLE Servers (ID int, Name varchar(255), IgnoredChannels varchar(255), ModerationRoles varchar(255));', (err, res) => {
+con.query('INSERT INTO Servers (ID, Name) VALUES (039482093849839, \'GCUS\');', (err, res) => {
   console.log(res);
   con.end();
 });
