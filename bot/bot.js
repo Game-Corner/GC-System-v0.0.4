@@ -56,7 +56,7 @@ client.guilds.forEach(function(key, value) {
 });
 */
 
-con.query('SELECT * FROM Servers;', (err, res) => {
+con.query('SELECT Name FROM Servers;', (err, res) => {
   console.log(res);
   con.end();
 });
