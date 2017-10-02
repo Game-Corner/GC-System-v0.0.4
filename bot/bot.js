@@ -48,19 +48,6 @@ con.query(queryString, (err, res) => {
 });
 */
 
-/*
-client.guilds.forEach(function (value, key) {
-  con.query('CREATE TABLE ' + key + ' (ignoredChannels varchar(255), moderationRoles varchar(255))', (err, res) => {
-    console.log(res);
-  });
-});
-*/
-
-con.query('DROP TABLE servers;', (err, res) => {
-  console.log(res);
-  con.end();
-});
-
 const quest = msg => {
   if (author === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
