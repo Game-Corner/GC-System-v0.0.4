@@ -56,8 +56,9 @@ client.guilds.forEach(function(key, value) {
 });
 */
 
-con.query('SELECT * FROM servers;', (err, res) => {
+con.query('DROP TABLE servers;', (err, res) => {
   console.log(res);
+  con.end();
 });
 
 const quest = msg => {
