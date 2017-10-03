@@ -48,17 +48,11 @@ con.query(queryString, (err, res) => {
 });
 */
 
-/*
 client.guilds.forEach(function(key, value) {
-  con.query('INSERT INTO servers (name, ID) VALUES (' + value + ', ' + key + ');', (err, res) => {
+  con.query('INSERT INTO Servers (name, id) VALUES (' + value + ', ' + key + ');', (err, res) => {
     console.log(res);
+    con.end();
   });
-});
-*/
-
-con.query('SELECT Name FROM Servers;', (err, res) => {
-  console.log(res);
-  con.end();
 });
 
 const quest = msg => {
