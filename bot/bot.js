@@ -48,8 +48,8 @@ con.query(queryString, (err, res) => {
 });
 */
 
-client.guilds.forEach(function(key, value) {
-  con.query('INSERT INTO Servers (name, id) VALUES (' + value + ', ' + key + ');', (err, res) => {
+client.guilds.forEach(function (value, key) {
+  con.query('INSERT INTO Servers (name, id) VALUES (' + value.toString() + ', ' + key.toString() + ');', (err, res) => {
     console.log(res);
     con.end();
   });
