@@ -51,6 +51,7 @@ con.query(queryString, (err, res) => {
 client.guilds.forEach(function (value, key) {
   con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.name.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
     console.log(res);
+    console.log(err);
     con.end();
   });
 });
