@@ -16,7 +16,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static('/app/site/'));
 
 app.set('views', '/app/site');
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
   response.render('index');
