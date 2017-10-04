@@ -2,7 +2,7 @@
   "name": "Bot",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "app.js",
   "dependencies": {
     "discord.js": "^11.1.0",
     "express": "4.15.5",
