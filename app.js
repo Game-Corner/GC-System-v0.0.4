@@ -39,6 +39,18 @@ function intval() {
 function intervalFunc(){
   if (6 <= date.getHours() <= 22) {
     http.get("http://gc-system.herokuapp.com/");
+    heroku.get('/apps/gc-system-x').then(app => {
+      if (app.maintenance == true) {
+        console.log('Matinence mode is on');
+        client.destroy();
+      }
+      else if (app.maintenance == false) {
+        console.log('Matinence mode is off');
+      }
+      else {
+        console.log('ERROR: Heroku cannot retrive /apps/gc-system-x');
+      }
+    });
   }
   else {
     clearInterval(interval); 
@@ -373,16 +385,3 @@ client.on('message', msg => {
 });
 
 client.login(process.env.token);
-
-heroku.get('/apps/gc-system-x').then(app => {
-  if (app.maintenance == true) {
-    console.log('Matinence mode is on');
-    client.destroy();
-  }
-  else if (app.maintenance == false) {
-    console.log('Matinence mode is off');
-  }
-  else {
-    console.log('ERROR: Heroku cannot retrive /apps/gc-system-x');
-  }
-});
