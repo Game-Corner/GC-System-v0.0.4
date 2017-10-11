@@ -34,7 +34,6 @@ if (6 <= date.getHours() <= 22) {
   }, 300000); // every 5 minutes (300000)
 };
 
-
 const quest = msg => {
   if (author === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
@@ -234,6 +233,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
   clientUser.setGame('GC!info');
+  clientUser.setUsername('Game Corner System X');
 });
 
 client.on('guildCreate', guild => {
