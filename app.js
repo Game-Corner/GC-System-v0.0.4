@@ -377,6 +377,7 @@ client.login(process.env.token);
 heroku.get('/apps/gc-system-x').then(app => {
   if (app.maintenance == true) {
     console.log('Matinence mode is on');
+    client.destroy();
   }
   else if (app.maintenance == false) {
     console.log('Matinence mode is off');
