@@ -348,6 +348,4 @@ client.on('message', msg => {
   }
 });
 
-if (
-
 client.login(process.env.token);
