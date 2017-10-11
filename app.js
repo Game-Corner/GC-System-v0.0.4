@@ -8,8 +8,8 @@ var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
 var moderationRoles = new Map();
-var prefix = 'GC!';
-var prefixM = 'GCm!';
+var prefix = 'GCx!';
+var prefixM = 'GCmx!';
 var date = new Date();
 
 app.set('port', (process.env.PORT || 5000));
@@ -268,7 +268,6 @@ client.on('ready', () => {
 
 client.on('guildCreate', guild => {
   guild.owner.send('Game Corner System has joined your server! To learn more about this bot, please type `GC!info` in ' + guild.name + '. To configure this bot\'s moderation and functions, please type `GCm!info` in ' + guild.name + '.');
-  
 });
 
 client.on('message', msg => {
