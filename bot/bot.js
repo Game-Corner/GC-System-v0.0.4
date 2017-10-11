@@ -28,12 +28,18 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
-if (6 <= date.getHours() <= 22) {
-  setInterval(function() {
-    http.get("http://gc-system.herokuapp.com/");
-  }, 300000); // every 5 minutes (300000)
-};
+var interval = setInterval(intervalFunc, 300000);
 
+function intervalFunc(){
+  if (6 <= date.getHours() <= 22) {
+    http.get("http://gc-system.herokuapp.com/");
+  }
+  else {
+    clearInterval(interval); 
+  }
+}
+
+interval;
 
 const quest = msg => {
   if (author === msg.author.id) {
@@ -339,5 +345,7 @@ client.on('message', msg => {
     }
   }
 });
+
+if (
 
 client.login(process.env.token);
