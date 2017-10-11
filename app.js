@@ -263,7 +263,7 @@ const msgIgnore_1 = msg => {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
-  clientUser.setGame('GC!info');
+  clientUser.setGame('GCx!info');
 });
 
 client.on('guildCreate', guild => {
