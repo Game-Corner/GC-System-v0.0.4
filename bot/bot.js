@@ -28,7 +28,9 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
-var interval = setInterval(intervalFunc, 300000);
+function intval() {
+  interval = setInterval(intervalFunc, 300000);
+}
 
 function intervalFunc(){
   if (6 <= date.getHours() <= 22) {
@@ -39,7 +41,7 @@ function intervalFunc(){
   }
 }
 
-interval;
+intval;
 
 const quest = msg => {
   if (author === msg.author.id) {
