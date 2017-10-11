@@ -30,11 +30,20 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
-setInterval(function() {
+function intval() {
+  interval = setInterval(intervalFunc, 300000);
+}
+
+function intervalFunc(){
   if (6 <= date.getHours() <= 22) {
     http.get("http://gc-system.herokuapp.com/");
   }
-}, 300000); // every 5 minutes (300000)
+  else {
+    clearInterval(interval); 
+  }
+}
+
+intval;
 
 const con = new Client({
   connectionString: process.env.DATABASE_URL,
