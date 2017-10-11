@@ -10,24 +10,6 @@ var moderationRoles = new Map();
 var prefix = 'GC!';
 var prefixM = 'GCm!';
 var date = new Date();
-var mysql = require('mysql');
-
-var con = mysql.createConnection({
-  host: process.env.JAWSDB_MARIA_HOST,
-  user: process.env.JAWSDB_MARIA_USER,
-  password: process.env.JAWSDB_MARIA_PASSWORD,
-  database: "gc-system"
-});
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("MySQL connected!");
-  var sql = "CREATE TABLE servers (name VARCHAR(36), ID VARCHAR(20))";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    console.log("Table created");
-  });
-});
 
 app.set('port', (process.env.PORT || 5000));
 
