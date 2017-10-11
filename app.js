@@ -383,5 +383,5 @@ heroku.get('/apps/gc-system-x').then(app => {
   }
   else {
     console.log('ERROR: Heroku cannot retrive /apps/gc-system-x');
-    }
+  }
 });
