@@ -13,9 +13,10 @@ var prefixM = 'GCm!';
 var date = new Date();
 
 app.set('port', (process.env.PORT || 5000));
+app.use(express.static('/app/site/'));
 
 app.set('views', '/app/site');
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
   response.render('index');
@@ -42,14 +43,17 @@ const con = new Client({
 
 con.connect();
 
-con.query('CREATE TABLE servers (name varchar(36), ID int);', (err, res) => {
+/*
+con.query(queryString, (err, res) => {
   console.log(res);
-  /* 
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  */
-  con.end();
+});
+*/
+
+client.guilds.forEach(function (value, key) {
+  con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.name.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
+    console.log(res);
+    console.log(err);
+  });
 });
 
 const quest = msg => {
@@ -255,6 +259,7 @@ client.on('ready', () => {
 
 client.on('guildCreate', guild => {
   guild.owner.send('Game Corner System has joined your server! To learn more about this bot, please type `GC!info` in ' + guild.name + '. To configure this bot\'s moderation and functions, please type `GCm!info` in ' + guild.name + '.');
+  
 });
 
 client.on('message', msg => {
