@@ -34,6 +34,7 @@ if (6 <= date.getHours() <= 22) {
   }, 300000); // every 5 minutes (300000)
 };
 
+client.user.setUsername('Game Corner System X');
 
 const quest = msg => {
   if (author === msg.author.id) {
