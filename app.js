@@ -10,8 +10,8 @@ var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
 var moderationRoles = new Map();
-var prefix = 'GCx!';
-var prefixM = 'GCmx!';
+var prefix = 'GC!';
+var prefixM = 'GCm!';
 var date = new Date();
 
 app.set('port', (process.env.PORT || 5000));
@@ -295,7 +295,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: [Game Corner](https://game-corner.000webhostapp.com) \n 2. Discord: [Game Corner US Discord](https://discord.gg/jgFrBhN) \n 3. Bot Join Link: (Game Corner System)[https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790] \n 4. GitHub: (GC-System)[https://github.com/Game-Corner/GC-System]');
+      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. Bot Join Link: https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790 \n 4. GitHub: https://github.com/Game-Corner/GC-System');
     }
   }
   
