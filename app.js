@@ -1,11 +1,11 @@
 const http = require('http'); 
 const { Client } = require('pg');
 const express = require('express')
-const app = express()
+const app = express();
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const Heroku = require('heroku-client')
-const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN})
+const Heroku = require('heroku-client');
+const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN});
 var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
