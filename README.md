@@ -15,4 +15,4 @@ ___
 Right now our project is sustained on a free heroku Dyno. If you would like it to be availible full time please contribute here: 
 (comming soon)
 
-If you would like this bot to join your server, click here: https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790
+If you would like this bot to join your server, click here: [Game Corner System](https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790)
