@@ -3,7 +3,7 @@ A Discord Bot!
 
 This project is to create a master, awesome, all in one, bot for the Game Corner Community and any other server that wants to use it!
 
-**Blog:** (GC-System Blog)[https://game-corner.000webhostapp.com/gc-system-blog/]
+**Blog:** [GC-System Blog](https://game-corner.000webhostapp.com/gc-system-blog/) 
 
 This bot can be used for educational purposes as it provides a introduction to Javascript -> Node.js -> Discord.js and allows the user to:
 1. Create commands and edit them.
