@@ -73,12 +73,16 @@ con.query(queryString, (err, res) => {
 */
 
 client.guilds.forEach(function (value, key) {
-   con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
+  console.log(value + ', ' + key);
+  /*
+  con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
     console.log(res);
     console.log(err);
-    con.end();
   });
+  */
 });
+
+con.end();
 
 const quest = msg => {
   if (author === msg.author.id) {
