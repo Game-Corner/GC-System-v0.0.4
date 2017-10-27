@@ -72,15 +72,23 @@ con.query(queryString, (err, res) => {
 });
 */
 
+/*
 client.guilds.forEach(function (value, key) {
   console.log(value.toString() + ', ' + key.valueOf());
-  /*
+  
   con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
     console.log(res);
     console.log(err);
   });
-  */
+  
 });
+*/
+
+var mappie = client.guilds.map(function(x) {
+   return x;
+});
+
+console.log(mappie);
 
 con.end();
 
