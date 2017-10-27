@@ -72,20 +72,6 @@ con.query(queryString, (err, res) => {
 });
 */
 
-/*
-client.guilds.forEach(function (value, key) {
-  console.log(value.toString() + ', ' + key.valueOf());
-  
-  con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
-    console.log(res);
-    console.log(err);
-  });
-  
-});
-*/
-
-con.end();
-
 const quest = msg => {
   if (author === msg.author.id) {
     if (msg.content === 'Moderator' || msg.content === 'moderator') {
@@ -284,12 +270,17 @@ const msgIgnore_1 = msg => {
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
-  clientUser.setGame('GCx!info');
-  var mappie = client.guilds.map(function(x) {
-   return x;
+  clientUser.setGame('GC!info');
+  client.guilds.forEach(function (value, key) {
+    console.log(value.toString() + ', ' + key.valueOf());
+    /*
+    con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
+      console.log(res);
+      console.log(err);
+    });
+    */
   });
-
-  console.log(mappie);
+  con.end();
 });
 
 client.on('guildCreate', guild => {
