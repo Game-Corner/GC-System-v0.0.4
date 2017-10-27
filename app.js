@@ -271,6 +271,7 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
   clientUser.setGame('GC!info');
+  /*
   client.guilds.forEach(function (value, key) {
     con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
       console.log(res);
@@ -278,6 +279,7 @@ client.on('ready', () => {
     });
   });
   con.end();
+  */
 });
 
 client.on('guildCreate', guild => {
