@@ -84,12 +84,6 @@ client.guilds.forEach(function (value, key) {
 });
 */
 
-var mappie = client.guilds.map(function(x) {
-   return x;
-});
-
-console.log(mappie);
-
 con.end();
 
 const quest = msg => {
@@ -291,6 +285,11 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
   clientUser.setGame('GCx!info');
+  var mappie = client.guilds.map(function(x) {
+   return x;
+  });
+
+  console.log(mappie);
 });
 
 client.on('guildCreate', guild => {
