@@ -32,6 +32,8 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
+client.login(process.env.token);
+
 function intval() {
   interval = setInterval(intervalFunc, 300000);
 }
@@ -80,7 +82,7 @@ client.guilds.forEach(function (value, key) {
 });
 */
 
-con.query('INSERT INTO Servers (name) VALUES (\'Game Corner X'\);', (err, res) => {
+con.query('INSERT INTO Servers (name) VALUES (\'Game Corner X\');', (err, res) => {
   console.log(res);
   console.log(err);
   con.end();
@@ -390,5 +392,3 @@ client.on('message', msg => {
     }
   }
 });
-
-client.login(process.env.token);
