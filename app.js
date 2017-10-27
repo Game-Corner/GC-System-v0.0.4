@@ -32,8 +32,6 @@ app.listen(app.get('port'), function() {
 app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
-client.login(process.env.token);
-
 function intval() {
   interval = setInterval(intervalFunc, 300000);
 }
@@ -392,3 +390,5 @@ client.on('message', msg => {
     }
   }
 });
+
+client.login(process.env.token);
