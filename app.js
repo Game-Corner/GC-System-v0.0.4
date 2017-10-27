@@ -272,13 +272,10 @@ client.on('ready', () => {
   var clientUser = client.user;
   clientUser.setGame('GC!info');
   client.guilds.forEach(function (value, key) {
-    console.log(value.toString() + ', ' + key.valueOf());
-    /*
     con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
       console.log(res);
       console.log(err);
     });
-    */
   });
   con.end();
 });
