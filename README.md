@@ -7,14 +7,14 @@ This project is to create a master, awesome, all in one, bot for the Game Corner
 
 ## Contents
 
-..* Features 
-..* Advantages
-..* How it Works
+* Features 
+* Advantages
+* How it Works
 
 *For the begineer...*
 
-..* What is a Discord Bot?
-..* How do bots help the Discord Community?
+* What is a Discord Bot?
+* How do bots help the Discord Community?
 
 ---
 
@@ -44,10 +44,10 @@ A bot (short for robot), is an automated user that interacts with real users in 
 
 A user types in a *command* into a channel and a bot responds by...
 
-..* Replying a message to the user in the chat
-..* Adding a function to the bot (a timer, new command, etc.)
-..* The bot joining a voice channel and playing a song
-..* And the list goes on and on and on...
+* Replying a message to the user in the chat
+* Adding a function to the bot (a timer, new command, etc.)
+* The bot joining a voice channel and playing a song
+* And the list goes on and on and on...
 
 (Commands usually consist of a prefix followed by a keyword. For example with GC System, "GC!" (the prefix) and then a keyword of your choice that determines the type of interaction "info", or "GC!info" will result in bot replying with information about the bot)
 
