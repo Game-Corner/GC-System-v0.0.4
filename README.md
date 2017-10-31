@@ -29,11 +29,10 @@ This bot can be used for educational purposes as it provides a introduction to J
 
 __How it Works__
 
-__What is a Discord Bot?__
-
 #### *For the begineer...*
 
 __What is a Disocrd bot?__
+
 First, what is Discord? Direct from Nelly, Chief Robot Hamster. Eater of cheeses. Maker of boops, is her [Parents Guild to Discord](https://blog.discordapp.com/parents-guide-to-discord-c77d91793e9c), which gives the best overview to people of all ages what Disocrd really is. 
 
 "Discord is a free voice, video and text chat app for teens and adults ages 13 and up. It was created to bring people together through a love of gaming. Teens can access Discord via their PC, browser, or mobile phone. Once there, they can join a chat they’ve been invited to or they can create private servers and invite their friends to play and discuss games by voice, text or video. They can also message each other individually or in group chats with up to ten other friends."
@@ -50,6 +49,7 @@ A user types in a *command* into a channel and a bot responds by...
 * And the list goes on and on and on...
 
 (Commands usually consist of a prefix followed by a keyword. For example with GC System, "GC!" (the prefix) and then a keyword of your choice that determines the type of interaction "info", or "GC!info" will result in bot replying with information about the bot)
+
 
 As you can see, the versatility of a Discord bot is amazing and the posibilities are endless. Disocrd being only 2 years old, has over 45 million users and is now a major competitor of Skype. Imagine if all those users had bots... We want Game Corner System to reach all of them.
 
