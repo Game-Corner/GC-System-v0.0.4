@@ -13,8 +13,7 @@ This project is to create a master, awesome, all in one, bot for the Game Corner
 
 *For the begineer...*
 
-* What is a Discord Bot?
-* How do bots help the Discord Community?
+* What is a Discord Bot and how do they help the Community?
 
 ---
 
