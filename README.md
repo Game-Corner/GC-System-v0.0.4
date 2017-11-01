@@ -32,7 +32,7 @@ __How it Works__
 
 __What is a Disocrd bot?__
 
-First, what is Discord? Direct from Nelly, Chief Robot Hamster. Eater of cheeses. Maker of boops, is her [Parents Guild to Discord](https://blog.discordapp.com/parents-guide-to-discord-c77d91793e9c), which gives the best overview to people of all ages what Disocrd really is. 
+First, what is Discord? Direct from Nelly, Chief Robot Hamster. Eater of cheeses. Maker of boops, is her [Parents Guild to Discord](https://blog.discordapp.com/parents-guide-to-discord-c77d91793e9c), which gives the best overview to people of all ages what Discord really is. 
 
 "Discord is a free voice, video and text chat app for teens and adults ages 13 and up. It was created to bring people together through a love of gaming. Teens can access Discord via their PC, browser, or mobile phone. Once there, they can join a chat they’ve been invited to or they can create private servers and invite their friends to play and discuss games by voice, text or video. They can also message each other individually or in group chats with up to ten other friends."
 
