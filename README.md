@@ -49,7 +49,8 @@ A user types in a *command* into a channel and a bot responds by...
 
 (A *Command* usually consist of a prefix followed by a keyword. For example with GC System, "GC!" (the prefix) and then a keyword of your choice that determines the type of interaction "info", or "GC!info" will result in bot replying with information about the bot)
 
-As you can see, the versatility of a Discord bot is amazing and the posibilities are endless. Disocrd being only 2 years old, has over 45 million users and is now a major competitor of Skype and TeamSpeak. Imagine if all those users had bots... We want Game Corner System to reach all of them.
+As you can see, the versatility of a Discord bot is amazing and the posibilities are endless. Disocrd being only 2 years old, has over 45 million users and is now a major competitor of Skype and TeamSpeak. 
+Now imagine if all those user's servers had bots... We want Game Corner System to reach all of them.
 
 You can visit Discord's site [here](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiarPr56JvXAhUW0IMKHalZAcgQFgglMAA&url=https%3A%2F%2Fdiscordapp.com%2F&usg=AOvVaw2mEPm0IN1VJOrjVGlu_Eqi). 
 ___
