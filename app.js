@@ -6,6 +6,11 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const Heroku = require('heroku-client');
 const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN});
+const express = require('express')
+const app = express()
+const Discord = require("discord.js");
+const client = new Discord.Client();
+
 var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
@@ -15,6 +20,7 @@ var prefixM = 'GCm!';
 var date = new Date();
 
 app.set('port', (process.env.PORT || 5000));
+
 app.use(express.static('/app/site/'));
 
 app.set('views', '/app/site');
@@ -59,6 +65,7 @@ function intervalFunc(){
 
 intval;
 
+
 const con = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: true,
@@ -71,6 +78,7 @@ con.query(queryString, (err, res) => {
   console.log(res);
 });
 */
+
 
 const quest = msg => {
   if (author === msg.author.id) {
