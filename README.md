@@ -1,7 +1,7 @@
 # GC-System
 A Discord Bot!
 
-This project is to create a master, awesome, all in one, bot for the Game Corner Community and any other server that wants to use it!
+This project is to create a master, awesome, all in one, bot for the Game Corner Community and any other Discord server or community that wants to use it!
 
 **Blog:** [GC-System Blog](https://game-corner.000webhostapp.com/gc-system-blog/) 
 
