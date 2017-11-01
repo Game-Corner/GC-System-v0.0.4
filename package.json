@@ -2,13 +2,13 @@
   "name": "Bot",
   "version": "1.0.0",
   "description": "",
-  "main": "bot.js",
+  "main": "app.js",
   "dependencies": {
     "discord.js": "^11.1.0",
-    "ejs": "2.5.7",
     "express": "4.15.5",
-    "mysql": "2.14.1",
-    "serve-favicon": "2.4.5"
+    "serve-favicon": "2.4.5",
+    "pg": "7.3.0",
+    "heroku-client": "3.0.3"
   },
   "devDependencies": {},
   "scripts": {

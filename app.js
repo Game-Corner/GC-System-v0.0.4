@@ -1,8 +1,16 @@
 const http = require('http'); 
+const { Client } = require('pg');
+const express = require('express')
+const app = express();
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const Heroku = require('heroku-client');
+const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN});
 const express = require('express')
 const app = express()
 const Discord = require("discord.js");
 const client = new Discord.Client();
+
 var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
@@ -13,8 +21,10 @@ var date = new Date();
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use(express.static('/app/site/'));
+
 app.set('views', '/app/site');
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
   response.render('index');
@@ -29,12 +39,24 @@ app.use(favicon(path.join('site', 'files', 'favicon.ico')));
 */
 
 function intval() {
-  interval = setInterval(intervalFunc, 300000);
+  interval = setInterval(intervalFunc, 30000);
 }
 
 function intervalFunc(){
   if (6 <= date.getHours() <= 22) {
     http.get("http://gc-system.herokuapp.com/");
+    heroku.get('/apps/gc-system-x').then(app => {
+      if (app.maintenance == true) {
+        console.log('Matinence mode is on');
+        client.destroy();
+      }
+      else if (app.maintenance == false) {
+        console.log('Matinence mode is off');
+      }
+      else {
+        console.log('ERROR: Heroku cannot retrive /apps/gc-system-x');
+      }
+    });
   }
   else {
     clearInterval(interval); 
@@ -42,6 +64,21 @@ function intervalFunc(){
 }
 
 intval;
+
+
+const con = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true,
+});
+
+con.connect();
+
+/*
+con.query(queryString, (err, res) => {
+  console.log(res);
+});
+*/
+
 
 const quest = msg => {
   if (author === msg.author.id) {
@@ -242,6 +279,15 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
   var clientUser = client.user;
   clientUser.setGame('GC!info');
+  /*
+  client.guilds.forEach(function (value, key) {
+    con.query('INSERT INTO Servers (name, id) VALUES (\'' + value.toString() + '\', ' + key.valueOf() + ');', (err, res) => {
+      console.log(res);
+      console.log(err);
+    });
+  });
+  con.end();
+  */
 });
 
 client.on('guildCreate', guild => {
@@ -259,7 +305,7 @@ client.on('message', msg => {
   if (msg.content === prefix + 'info') {
     if (ignoredChannels.has(msg.channel.id)) {}
     else {
-      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: [Game Corner](https://game-corner.000webhostapp.com) \n 2. Discord: [Game Corner US Discord](https://discord.gg/jgFrBhN) \n 3. Bot Join Link: (Game Corner System)[https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790] \n 4. GitHub: (GC-System)[https://github.com/Game-Corner/GC-System]');
+      msg.reply('**Game Corner System is a open-sourced Discord Bot that acts as the official bot for the GC community.** \n Commands can be found by using `' + prefix + 'commands`. \n **Sites:** \n 1. Community: https://game-corner.000webhostapp.com \n 2. Discord: https://discord.gg/jgFrBhN \n 3. Bot Join Link: https://discordapp.com/oauth2/authorize?client_id=330470506455236608&scope=bot&permissions=468974790 \n 4. GitHub: https://github.com/Game-Corner/GC-System');
     }
   }
   
