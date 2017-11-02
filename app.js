@@ -6,9 +6,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const Heroku = require('heroku-client');
 const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN});
-const Discord = require("discord.js");
-const client = new Discord.Client();
-
 var favicon = require('serve-favicon');
 var path = require('path');
 var ignoredChannels = new Map();
