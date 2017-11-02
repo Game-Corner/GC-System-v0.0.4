@@ -1,6 +1,6 @@
 const http = require('http'); 
 const { Client } = require('pg');
-const express = require('express')
+const express = require('express');
 const app = express();
 const Discord = require("discord.js");
 const client = new Discord.Client();
