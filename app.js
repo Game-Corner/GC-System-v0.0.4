@@ -6,8 +6,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const Heroku = require('heroku-client');
 const heroku = new Heroku({token: process.env.HEROKU_API_TOKEN});
-const express = require('express')
-const app = express()
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
