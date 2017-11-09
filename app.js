@@ -275,12 +275,7 @@ client.on('ready', () => {
   var clientUser = client.user;
   clientUser.setGame('GC!info');
   client.guilds.forEach(function (value, key) {
-    if (
-      con.query(`SELECT guildID FROM Servers WHERE EXISTS (${key} = Servers.ID);`), (err, res) => {
-        console.log(res);
-        console.log(err);
-      });
-    ) {}
+    if (con.query(`SELECT guildID FROM Servers WHERE EXISTS (${key} = Servers.ID);`), (err, res) => {console.log(res); console.log(err); }); ) {}
     else {
       con.query(`INSERT INTO Servers (name, id) VALUES (\'${value.toString()}\', ${key.valueOf()});`), (err, res) => {
         console.log(res);
