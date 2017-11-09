@@ -281,7 +281,7 @@ client.on('ready', () => {
       }
     ) {}
     else {
-      con.query(`INSERT INTO Servers (name, id) VALUES (\'${value.toString()}\', ${key.valueOf());`), (err, res) => {
+      con.query(`INSERT INTO Servers (name, id) VALUES (\'${value.toString()}\', ${key.valueOf()});`), (err, res) => {
         console.log(res);
         console.log(err);
       };
