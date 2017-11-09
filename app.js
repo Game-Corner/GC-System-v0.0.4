@@ -286,6 +286,7 @@ client.on('ready', () => {
         console.log(res);
         console.log(err);
       });
+    }
   });
 });
 
