@@ -275,7 +275,7 @@ client.on('ready', () => {
   var clientUser = client.user;
   clientUser.setGame('GC!info');
   client.guilds.forEach(function (value, key) {
-    if (con.query(`IF EXISTS (SELECT guildID FROM Servers WHERE guildID = ${key};`), (err, res) => {
+    if (con.query(`SELECT guildID FROM Servers WHERE guildID = ${key};`), (err, res) => {
         console.log(res); 
         console.log(err);
       }
