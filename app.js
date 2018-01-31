@@ -82,12 +82,12 @@ con.query(queryString, (err, res) => {
 
 const quest = msg => {
   if (author === msg.author.id) {
-    if (msg.content === 'Moderator' || msg.content === 'moderator') {
+    if (msg.content.toLowerCase() === 'moderator') {
       msg.reply('What should the new Moderator prefix be?');
       client.removeListener('message', quest);
       client.on('message', quest1);
     }
-    else if (msg.content === 'Everyone' || msg.content === 'everyone') {
+    else if (msg.content.toLowerCase() === 'everyone') {
       msg.reply('What should the new Everyone prefix be?');
       client.removeListener('message', quest);
       client.on('message', quest2);
@@ -160,12 +160,12 @@ const quest2_1 = msg => {
 
 const quest3 = msg => {
   if (author === msg.author.id) {
-    if (msg.content === 'Moderator' || msg.content === 'moderator') {
+    if (msg.content.toLowerCase() === 'moderator') {
       msg.reply('What should the new Moderator prefix be?');
       client.removeListener('message', quest3);
       client.on('message', quest1);
     }
-    else if (msg.content === 'Everyone' || msg.content === 'everyone') {
+    else if (msg.content.toLowerCase() === 'everyone') {
       msg.reply('What should the new Everyone prefix be?');
       client.removeListener('message', quest3);
       client.on('message', quest2);
@@ -240,12 +240,12 @@ const modPrivs_1 = msg => {
  
 const msgIgnore = msg => {
   if (author === msg.author.id) {
-    if (msg.content === 'Yes') {
+    if (msg.content.toLowerCase() === 'yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
       client.removeListener('message', msgIgnore);
     }
-    else if (msg.content === 'No') {
+    else if (msg.content.toLowerCase() === 'no') {
       msg.reply('Channel is still ignored.');
       client.removeListener('message', msgIgnore);
     }
@@ -259,12 +259,12 @@ const msgIgnore = msg => {
 
 const msgIgnore_1 = msg => {
   if (author === msg.author.id) {
-    if (msg.content === 'Yes') {
+    if (msg.content.toLowerCase() === 'yes') {
       ignoredChannels.delete(msg.channel.id);
       msg.reply('Channel is now not ignored.');
       client.removeListener('message', msgIgnore_1);
     }
-    else if (msg.content === 'No') {
+    else if (msg.content.toLowerCase() === 'no') {
       msg.reply('Channel is still ignored.');
       client.removeListener('message', msgIgnore_1);
     }
